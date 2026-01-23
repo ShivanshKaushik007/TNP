@@ -74,7 +74,7 @@ export default function Header() {
                   <Link href="/recruiters/procedure" className="block px-4 py-2 hover:bg-gray-50 text-sm text-muted">
                     PROCEDURE
                   </Link>
-                  <Link href="/recruiters/ContactForm" className="block px-4 py-2 hover:bg-gray-50 text-sm text-muted">
+                  <Link href="/recruiters/contactform" className="block px-4 py-2 hover:bg-gray-50 text-sm text-muted">
                     COMPANY CONTACT FORM
                   </Link>
                   <Link href="/recruiters/demographic" className="block px-4 py-2 hover:bg-gray-50 text-sm text-muted">
@@ -97,6 +97,9 @@ export default function Header() {
               </div>
             </div>
 
+            <Link href="/gallery" className="text-muted hover:text-brand-800 transition-colors">
+              Gallery
+            </Link>
             <Link href="/downloads" className="text-muted hover:text-brand-800 transition-colors">
               Downloads
             </Link>
@@ -183,6 +186,9 @@ export default function Header() {
               )}
             </div>
 
+            <Link href="/gallery" className="block py-2 text-brand-800 font-medium">
+              Gallery
+            </Link>
             <Link href="/downloads" className="block py-2 text-brand-800 font-medium">
               Downloads
             </Link>
