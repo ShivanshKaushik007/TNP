@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { FlipWords } from '@/components/ui/flip-words';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
 
 export default function Home() {
   useEffect(() => {
@@ -163,12 +165,44 @@ export default function Home() {
       };
     };
 
+    // Gallery slider
+    const setupGallerySlider = () => {
+      const gallerySlider = document.getElementById('gallery-slider');
+      if (!gallerySlider) return;
+
+      const slides = Array.from(gallerySlider.querySelectorAll('.gallery-slide')) as HTMLElement[];
+      if (slides.length === 0) return;
+
+      let currentIndex = 0;
+      slides.forEach((slide, index) => {
+        slide.classList.toggle('opacity-100', index === 0);
+        slide.classList.toggle('opacity-0', index !== 0);
+        slide.classList.toggle('z-10', index === 0);
+        slide.classList.toggle('z-0', index !== 0);
+      });
+
+      const interval = setInterval(() => {
+        const prevIndex = currentIndex;
+        currentIndex = (currentIndex + 1) % slides.length;
+
+        slides[prevIndex]?.classList.remove('opacity-100', 'z-10');
+        slides[prevIndex]?.classList.add('opacity-0', 'z-0');
+
+        slides[currentIndex]?.classList.remove('opacity-0', 'z-0');
+        slides[currentIndex]?.classList.add('opacity-100', 'z-10');
+      }, 3000);
+
+      return () => clearInterval(interval);
+    };
+
     const cleanupLogo = setupLogoSlider();
     const cleanupInfra = setupInfraSlider();
+    const cleanupGallery = setupGallerySlider();
 
     return () => {
       cleanupLogo?.();
       cleanupInfra?.();
+      cleanupGallery?.();
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.removeEventListener('click', handleAnchorClick);
       });
@@ -196,8 +230,9 @@ export default function Home() {
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 <span className="block">Building The</span>
-                <span className="typewriter text-brand-accent">Next Generation</span>
-                <span className="block">Of Innovators</span>
+                <span className="">Next Generation</span>
+                <span className="block">Of <FlipWords words={["Innovators", "Leaders", "Creators"]} /></span>
+                
               </h1>
 
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
@@ -251,7 +286,7 @@ export default function Home() {
               <a href="#infrastructure" className="relative block group cursor-pointer">
                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl transition-all duration-500 group-hover:bg-white/15 group-hover:border-white/40">
                   <div className="relative overflow-hidden rounded-xl">
-                    <img src="/images/ietlko.png" alt="IET Campus"
+                    <img src="/images/college_image.svg" alt="IET Campus"
                       className="rounded-xl w-full h-64 object-cover transform transition-transform duration-1000 group-hover:scale-110" />
 
                     <div className="absolute inset-0 flex items-center justify-center z-20">
@@ -310,34 +345,73 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-2xl p-8 hover-lift">
-              <div className="w-14 h-14 bg-brand-700 rounded-xl text-white flex items-center justify-center mb-6">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+            <div className="min-h-[14rem]">
+              <div className="relative h-full rounded-2xl border border-gray-100 p-2 hover-lift">
+                <GlowingEffect
+                  blur={0}
+                  borderWidth={3}
+                  spread={80}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                />
+                <div className="bg-gray-50 rounded-2xl p-8">
+                  <div className="w-14 h-14 bg-brand-700 rounded-xl text-white flex items-center justify-center mb-6">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h5 className="font-bold text-xl mb-3">Industry Partnerships</h5>
+                  <p className="text-muted">We maintain strong relationships with over 200 companies across diverse sectors for placements and internships.</p>
+                </div>
               </div>
-              <h5 className="font-bold text-xl mb-3">Industry Partnerships</h5>
-              <p className="text-muted">We maintain strong relationships with over 200 companies across diverse sectors for placements and internships.</p>
             </div>
 
-            <div className="bg-gray-50 rounded-2xl p-8 hover-lift">
-              <div className="w-14 h-14 bg-brand-700 rounded-xl text-white flex items-center justify-center mb-6">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                </svg>
+            <div className="min-h-[14rem]">
+              <div className="relative h-full rounded-2xl border border-gray-100 p-2 hover-lift">
+                <GlowingEffect
+                  blur={0}
+                  borderWidth={3}
+                  spread={80}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                />
+                <div className="bg-gray-50 rounded-2xl p-8">
+                  <div className="w-14 h-14 bg-brand-700 rounded-xl text-white flex items-center justify-center mb-6">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                  </div>
+                  <h5 className="font-bold text-xl mb-3">Skill Development</h5>
+                  <p className="text-muted">Comprehensive training programs including technical workshops, soft skills, and mock interviews to enhance employability.</p>
+                </div>
               </div>
-              <h5 className="font-bold text-xl mb-3">Skill Development</h5>
-              <p className="text-muted">Comprehensive training programs including technical workshops, soft skills, and mock interviews to enhance employability.</p>
             </div>
 
-            <div className="bg-gray-50 rounded-2xl p-8 hover-lift">
-              <div className="w-14 h-14 bg-brand-700 rounded-xl text-white flex items-center justify-center mb-6">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
+            <div className="min-h-[14rem]">
+              <div className="relative h-full rounded-2xl border border-gray-100 p-2 hover-lift">
+                <GlowingEffect
+                  blur={0}
+                  borderWidth={3}
+                  spread={80}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                />
+                <div className="bg-gray-50 rounded-2xl p-8">
+                  <div className="w-14 h-14 bg-brand-700 rounded-xl text-white flex items-center justify-center mb-6">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <h5 className="font-bold text-xl mb-3">Career Guidance</h5>
+                  <p className="text-muted">Personalized counseling and mentorship to help students make informed career choices and achieve their professional goals.</p>
+                </div>
               </div>
-              <h5 className="font-bold text-xl mb-3">Career Guidance</h5>
-              <p className="text-muted">Personalized counseling and mentorship to help students make informed career choices and achieve their professional goals.</p>
             </div>
           </div>
         </div>
@@ -568,6 +642,55 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="gallery" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-800">Campus Gallery</h2>
+            <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
+            <p className="text-muted mt-6 max-w-2xl mx-auto">
+              A glimpse into life at IET Lucknow through our facilities, events, and learning spaces.
+            </p>
+          </div>
+
+          <div className="relative">
+            <div
+              id="gallery-slider"
+              className="relative h-[240px] sm:h-[300px] md:h-[380px] overflow-hidden">
+              <div className="gallery-slide absolute inset-0 opacity-100 transition-opacity duration-700 min-w-full w-full h-full overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
+                <img src="/images/campus.jpg" alt="Campus" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-700 min-w-full w-full h-full overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
+                <img src="/images/library.jpeg" alt="Library" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-700 min-w-full w-full h-full overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
+                <img src="/images/tnproom.jpg" alt="Training and Placement Office" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-700 min-w-full w-full h-full overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
+                <img src="/images/auditorium.png" alt="Auditorium" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-700 min-w-full w-full h-full overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
+                <img src="/images/gd.jpg" alt="Group Discussion" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-700 min-w-full w-full h-full overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
+                <img src="/images/presentation.jpg" alt="Company Presentation" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/gallery"
+              className="inline-flex items-center gap-2 bg-brand-800 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+              <span>View More</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>

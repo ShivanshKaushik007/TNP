@@ -1,6 +1,43 @@
 export default function GalleryPage() {
   const sections = [
     {
+      tag: 'Training & Placement',
+      title: 'T&P Activities',
+      description: 'Workshops, mock drives, and engagement sessions hosted by the T&P Cell.',
+      items: [
+        {
+          src: '/images/tnproom.jpg',
+          title: 'T&P Office',
+          subtitle: 'Placement coordination hub',
+        },
+        {
+          src: '/images/presentation.jpg',
+          title: 'Company Presentations',
+          subtitle: 'Industry interactions and briefings',
+        },
+        {
+          src: '/images/gd.jpg',
+          title: 'Group Discussions',
+          subtitle: 'Soft-skill evaluation rounds',
+        },
+        {
+          src: '/images/texas.jpg',
+          title: 'Expert Sessions',
+          subtitle: 'Mentoring by industry leaders',
+        },
+        {
+          src: '/images/snf.jpg',
+          title: 'Mock Drives',
+          subtitle: 'Realistic practice for final rounds',
+        },
+        {
+          src: '/images/ietlko.png',
+          title: 'Campus Engagement',
+          subtitle: 'Industry-academia collaboration',
+        },
+      ],
+    },
+    {
       tag: 'Campus',
       title: 'Campus & Architecture',
       description: 'A glimpse of the IET campus, iconic spaces, and student-friendly environments.',
@@ -71,43 +108,6 @@ export default function GalleryPage() {
           src: '/images/facilities/audi.jpg',
           title: 'Auditorium Interior',
           subtitle: 'Large-capacity venue',
-        },
-      ],
-    },
-    {
-      tag: 'Training & Placement',
-      title: 'T&P Activities',
-      description: 'Workshops, mock drives, and engagement sessions hosted by the T&P Cell.',
-      items: [
-        {
-          src: '/images/tnproom.jpg',
-          title: 'T&P Office',
-          subtitle: 'Placement coordination hub',
-        },
-        {
-          src: '/images/presentation.jpg',
-          title: 'Company Presentations',
-          subtitle: 'Industry interactions and briefings',
-        },
-        {
-          src: '/images/gd.jpg',
-          title: 'Group Discussions',
-          subtitle: 'Soft-skill evaluation rounds',
-        },
-        {
-          src: '/images/texas.jpg',
-          title: 'Expert Sessions',
-          subtitle: 'Mentoring by industry leaders',
-        },
-        {
-          src: '/images/snf.jpg',
-          title: 'Mock Drives',
-          subtitle: 'Realistic practice for final rounds',
-        },
-        {
-          src: '/images/ietlko.png',
-          title: 'Campus Engagement',
-          subtitle: 'Industry-academia collaboration',
         },
       ],
     },

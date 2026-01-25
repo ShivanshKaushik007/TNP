@@ -11,14 +11,14 @@ export default function Header() {
   return (
     <header id="top" className="sticky top-0 z-50 backdrop-blur bg-white/90 border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-3">
+        <div className="flex items-center justify-between py-1">
           <Link href="/" className="flex items-center gap-3 sm:gap-3">
-            <div className="bg-brand-800 text-white rounded-xl p-1 shadow-glow-sm flex-shrink-0">
-              <img className="w-10 h-10 sm:w-12 sm:h-12" src="/images/logo.png" alt="ietlogo" />
+            <div>
+              <img className="w-10 h-10 sm:w-20 sm:h-20" src="/images/logo.png" alt="ietlogo" />
             </div>
             <div className="min-w-0">
-              <div className="sm:text-lg text-xs font-extrabold text-brand-800">Training & Placement Cell</div>
-              <div className="text-[10px] sm:text-xs text-muted">Institute of Engineering & Technology, Lucknow</div>
+              <div className="sm:text-2xl text-xs font-extrabold text-brand-800">Training & Placement Cell</div>
+              <div className="text-[10px] sm:text-sm text-muted">Institute of Engineering & Technology, Lucknow</div>
             </div>
           </Link>
 
@@ -29,7 +29,7 @@ export default function Header() {
             </Link>
 
             {/* INSIGHTS DROPDOWN */}
-            <div className="relative group">
+            <div className="relative group  ">
               <button className="inline-flex items-center gap-2 text-muted hover:text-brand-800 transition">
                 INSIGHTS
                 <svg className="w-3 h-3 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">

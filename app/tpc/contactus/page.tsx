@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 type Person = {
   name: string;
@@ -18,7 +19,7 @@ const leadership: Person[] = [
   {
     name: "Prof. Vineet Kansal",
     role: "Director",
-    dept: "Institute of Engineering and Technology, Lucknow",
+    dept: "IET, Lucknow",
     email: "director@ietlucknow.ac.in",
     img: "/images/vineet_kansal.jpg",
     href: "https://www.ietlucknow.ac.in/people/vkansal"
@@ -215,8 +216,11 @@ function PersonCard({ person, large = false }: { person: Person; large?: boolean
   const roleText = large ? "text-xs tracking-[0.2em]" : "text-[10px] tracking-[0.15em]";
   const baseClasses = "flex flex-col sm:flex-row items-center sm:items-start gap-8 group block overflow-hidden";
   const cardClass = large
-    ? `${baseClasses} bg-white border-2 border-brand-100 rounded-[2.5rem] shadow-md hover:shadow-2xl hover:border-brand-accent hover:-translate-y-1 transition-all duration-300`
-    : `${baseClasses} bg-white border-2 border-gray-100 rounded-3xl shadow-sm hover:shadow-xl hover:border-brand-accent/40 transition-all duration-300`;
+    ? `${baseClasses} bg-white rounded-[2.5rem] shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300`
+    : `${baseClasses} bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300`;
+  const wrapperClass = large
+    ? "relative h-full rounded-[2.5rem] border-2 border-brand-100 hover:border-brand-accent transition-all duration-300"
+    : "relative h-full rounded-3xl border-2 border-gray-100 hover:border-brand-accent/40 transition-all duration-300";
 
   const image = person.img ? (
     <img
@@ -284,16 +288,27 @@ function PersonCard({ person, large = false }: { person: Person; large?: boolean
   // Render a stable outer container to avoid wrapping block elements directly in <a>,
   // which can trigger hydration mismatches between server and client.
   return (
-    <div className={`${cardClass} ${cardPadding}`}>
-      {person.href ? (
-        // Use an inner anchor with display contents so the DOM structure remains consistent
-        // while the whole card remains clickable.
-        <a href={person.href} target="_blank" rel="noreferrer" className="contents">
-          {content}
-        </a>
-      ) : (
-        content
-      )}
+    <div className={wrapperClass}>
+      <GlowingEffect
+        blur={0}
+        borderWidth={2}
+        spread={80}
+        glow={true}
+        disabled={false}
+        proximity={64}
+        inactiveZone={0.01}
+      />
+      <div className={`${cardClass} ${cardPadding}`}>
+        {person.href ? (
+          // Use an inner anchor with display contents so the DOM structure remains consistent
+          // while the whole card remains clickable.
+          <a href={person.href} target="_blank" rel="noreferrer" className="contents">
+            {content}
+          </a>
+        ) : (
+          content
+        )}
+      </div>
     </div>
   );
 }
