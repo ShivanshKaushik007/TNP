@@ -225,7 +225,7 @@ export default function Home() {
             <div className="text-center lg:text-left slide-in-left">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
                 <span className="w-2 h-2 bg-brand-accent rounded-full pulse-glow"></span>
-                <span className="text-sm font-medium">AKTU Rank #1 Institute</span>
+                <span className="text-sm font-medium">NAAC A+ Accredited</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
