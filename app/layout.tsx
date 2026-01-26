@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${poppins.className} bg-white text-brand-800 antialiased`}>
+      <body className={`${poppins.className} bg-white text-brand-800 antialiased overflow-x-hidden`}>
         <Header />
         {children}
         <Footer />
