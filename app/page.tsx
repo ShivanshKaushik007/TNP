@@ -4,6 +4,52 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { FlipWords } from '@/components/ui/flip-words';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { HoverSlider, HoverSliderImage, HoverSliderImageWrap, TextStaggerHover } from '@/components/ui/animated-slideshow';
+
+const INFRASTRUCTURE_SLIDES = [
+  {
+    id: "slide-1",
+    title: "Placement Interviews",
+    imageUrl: "/images/snf.jpg",
+    description: "Students and faculty members posing outside the director's office after company placement interviews."
+  },
+  {
+    id: "slide-2",
+    title: "Auditorium",
+    imageUrl: "/images/auditorium.png",
+    description: "State-of-the-art auditorium for company presentations and events."
+  },
+  {
+    id: "slide-3",
+    title: "Training Sessions",
+    imageUrl: "/images/training session.jpg",
+    description: "Offline Training Session managed by Training and Placement Cell"
+  },
+  {
+    id: "slide-4",
+    title: "Group Discussion",
+    imageUrl: "/images/gd.jpg",
+    description: "Group Discussion round conducted during recruitment drive"
+  },
+  {
+    id: "slide-5",
+    title: "Personal Interview",
+    imageUrl: "/images/PI.jpg",
+    description: "Personal interview round with company recruiters at TnP Office"
+  },
+  {
+    id: "slide-6",
+    title: "Offline Test",
+    imageUrl: "/images/offline test.jpg",
+    description: "Offline test conducted as the part of the recruitment process"
+  },
+  {
+    id: "slide-7",
+    title: "Company Presentation",
+    imageUrl: "/images/presentation.jpg",
+    description: "Company presentation before the start of the selection process"
+  },
+];
 
 export default function Home() {
   useEffect(() => {
@@ -232,7 +278,7 @@ export default function Home() {
                 <span className="block">Building The</span>
                 <span className="">Next Generation</span>
                 <span className="block">Of <FlipWords words={["Innovators", "Leaders", "Creators"]} /></span>
-                
+
               </h1>
 
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
@@ -562,87 +608,35 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="relative group">
-            <button id="infra-prev"
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 z-10 p-3 rounded-full bg-white shadow-lg border border-gray-100 text-brand-800 hover:bg-brand-800 hover:text-white transition-all">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            <button id="infra-next"
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 z-10 p-3 rounded-full bg-white shadow-lg border border-gray-100 text-brand-800 hover:bg-brand-800 hover:text-white transition-all">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-            <div id="infra-slider" className="flex gap-4 md:gap-6 overflow-x-hidden scroll-smooth snap-x snap-mandatory">
-              <div className="min-w-full md:min-w-[calc(33.333%-16px)] snap-start relative h-[350px] md:h-[400px] overflow-hidden rounded-2xl shadow-sm border border-gray-100">
-                <img src="/images/snf.jpg" alt="Classroom" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6">
-                  <h5 className="text-white text-sm">Students and faculty members posing outside the director&apos;s office after company placement interviews.</h5>
-                </div>
+          <HoverSlider className="place-content-center">
+            <div className="flex flex-wrap items-center justify-evenly gap-6 md:gap-12">
+              <div className="flex flex-col space-y-2 md:space-y-4">
+                {INFRASTRUCTURE_SLIDES.map((slide, index) => (
+                  <TextStaggerHover
+                    key={slide.id}
+                    index={index}
+                    className="cursor-pointer text-2xl md:text-4xl font-bold uppercase tracking-tighter text-brand-800"
+                    text={slide.title}
+                  />
+                ))}
               </div>
-
-              <div className="min-w-full md:min-w-[calc(33.333%-16px)] snap-start relative h-[350px] md:h-[400px] overflow-hidden rounded-2xl shadow-sm border border-gray-100">
-                <img src="/images/auditorium.png" alt="Labs" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6">
-                  <h5 className="text-white text-lg font-bold">Auditorium</h5>
-                </div>
-              </div>
-
-              <div className="min-w-full md:min-w-[calc(33.333%-16px)] snap-start relative h-[350px] md:h-[400px] overflow-hidden rounded-2xl shadow-sm border border-gray-100">
-                <img src="/images/training session.jpg" alt="Training" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6">
-                  <h5 className="text-white text-sm">Offline Training Session managed by Training and Placement Cell</h5>
-                </div>
-              </div>
-
-              <div className="min-w-full md:min-w-[calc(33.333%-16px)] snap-start relative h-[350px] md:h-[400px] overflow-hidden rounded-2xl shadow-sm border border-gray-100">
-                <img src="/images/gd.jpg" alt="GD" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6">
-                  <h5 className="text-white text-sm">Group Discussion round conducted during recruitment drive</h5>
-                </div>
-              </div>
-
-              <div className="min-w-full md:min-w-[calc(33.333%-16px)] snap-start relative h-[350px] md:h-[400px] overflow-hidden rounded-2xl shadow-sm border border-gray-100">
-                <img src="/images/PI.jpg" alt="Interview" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6">
-                  <h5 className="text-white text-sm">Personal interview round with company recruiters at TnP Office</h5>
-                </div>
-              </div>
-
-              <div className="min-w-full md:min-w-[calc(33.333%-16px)] snap-start relative h-[350px] md:h-[400px] overflow-hidden rounded-2xl shadow-sm border border-gray-100">
-                <img src="/images/offline test.jpg" alt="Test" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6">
-                  <h5 className="text-white text-sm">Offline test conducted as the part of the recruitment process</h5>
-                </div>
-              </div>
-
-              <div className="min-w-full md:min-w-[calc(33.333%-16px)] snap-start relative h-[350px] md:h-[400px] overflow-hidden rounded-2xl shadow-sm border border-gray-100">
-                <img src="/images/presentation.jpg" alt="Presentation" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6">
-                  <h5 className="text-white text-sm">Company presentation before the start of the selection process</h5>
-                </div>
-              </div>
-
-              <div className="min-w-full md:min-w-[calc(33.333%-16px)] snap-start relative h-[350px] md:h-[400px] overflow-hidden rounded-2xl shadow-sm border border-gray-100">
-                <img src="/images/training session.jpg" alt="Training" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6">
-                  <h5 className="text-white text-sm">Offline training session arranged to prepare upcoming batches</h5>
-                </div>
-              </div>
+              <HoverSliderImageWrap className="w-full md:w-1/2 h-[350px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                {INFRASTRUCTURE_SLIDES.map((slide, index) => (
+                  <div key={slide.id} className="relative">
+                    <HoverSliderImage
+                      index={index}
+                      imageUrl={slide.imageUrl}
+                      src={slide.imageUrl}
+                      alt={slide.title}
+                      className="size-full object-cover"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </div>
+                ))}
+              </HoverSliderImageWrap>
             </div>
-          </div>
+          </HoverSlider>
         </div>
       </section>
 
@@ -1198,7 +1192,7 @@ export default function Home() {
                 <li><Link href="/recruiters/procedure" className="hover:text-white transition-colors">Procedure</Link></li>
                 <li><Link href="/recruiters/invitation" className="hover:text-white transition-colors">Invitation</Link></li>
                 <li><Link href="/recruiters/ContactForm" id="company-contact-link"
-                    className="hover:text-white transition-colors">Company Contact Form</Link></li>
+                  className="hover:text-white transition-colors">Company Contact Form</Link></li>
                 <li><Link href="/recruiters/demographic" className="hover:text-white transition-colors">Demographics</Link></li>
               </ul>
             </div>
@@ -1207,9 +1201,9 @@ export default function Home() {
               <h4 className="font-semibold text-lg mb-4">For Students</h4>
               <ul className="space-y-3 text-white/80 text-sm">
                 <li><a href="/files/Student_Placement_Policy.pdf" className="hover:text-white transition-colors">Placement
-                    Policy</a></li>
+                  Policy</a></li>
                 <li><a href="/files/Company_Guidelines_21-22.pdf" className="hover:text-white transition-colors">Internship
-                    Guidelines</a></li>
+                  Guidelines</a></li>
                 <li><Link href="/faq" className="hover:text-white transition-colors">FAQs</Link></li>
                 <li><Link href="/downloads" className="hover:text-white transition-colors">Downloads</Link></li>
               </ul>
