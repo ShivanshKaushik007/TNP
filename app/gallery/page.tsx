@@ -223,6 +223,7 @@ export default function GalleryPage() {
           </div>
         </div>
       </section>
+      <footer />
     </div>
   );
 }
