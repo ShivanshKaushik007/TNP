@@ -19,6 +19,17 @@ type AllData = {
   mca: ProgramData;
 };
 
+type PlacementOffersData = {
+  labels: string[];
+  values: number[];
+};
+
+type PackagesData = {
+  labels: string[];
+  highest: number[];
+  average: number[];
+};
+
 // Data Constants
 const DATA: AllData = {
   programs: {
@@ -57,6 +68,17 @@ const DATA: AllData = {
   },
 };
 
+const PLACEMENT_OFFERS: PlacementOffersData = {
+  labels: ["2020-21", "2021-22", "2022-23", "2023-24", "2024-25"],
+  values: [172, 246, 384, 404, 518],
+};
+
+const PACKAGES_OFFERED: PackagesData = {
+  labels: ["2022", "2023", "2024", "2025"],
+  highest: [45, 49, 60, 54],
+  average: [8, 7, 12, 7],
+};
+
 export default function Demographic() {
   const [activeProgram, setActiveProgram] = useState<keyof AllData | 'overview'>('overview');
   const [currentData, setCurrentData] = useState<ProgramData>(DATA.programs);
@@ -64,6 +86,10 @@ export default function Demographic() {
   const [isChartReady, setIsChartReady] = useState(false);
   const chartRef = useRef<HTMLCanvasElement>(null);
   const chartInstance = useRef<any>(null);
+  const barChartRef = useRef<HTMLCanvasElement>(null);
+  const barChartInstance = useRef<any>(null);
+  const lineChartRef = useRef<HTMLCanvasElement>(null);
+  const lineChartInstance = useRef<any>(null);
 
   // Handle Chart Initialization and Updates
   useEffect(() => {
@@ -104,6 +130,202 @@ export default function Demographic() {
       });
     }
   }, [isChartReady, currentData]);
+
+  useEffect(() => {
+    if (isChartReady && barChartRef.current) {
+      if (barChartInstance.current) {
+        barChartInstance.current.destroy();
+      }
+
+      // @ts-ignore - Chart is loaded via CDN script
+      const ctx = barChartRef.current.getContext('2d');
+      // @ts-ignore
+      barChartInstance.current = new window.Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: PLACEMENT_OFFERS.labels,
+          datasets: [
+            {
+              label: 'Placement Offers',
+              data: PLACEMENT_OFFERS.values,
+              backgroundColor: [
+                '#6FE7EA',
+                '#46B9D6',
+                '#2F88B5',
+                '#2D5A95',
+                '#0B3B84',
+              ],
+              borderColor: [
+                '#5DD6DA',
+                '#3AA7C2',
+                '#2A78A1',
+                '#274F83',
+                '#082F6C',
+              ],
+              borderWidth: 1,
+              borderRadius: { topLeft: 10, topRight: 10, bottomLeft: 0, bottomRight: 0 },
+              borderSkipped: 'bottom',
+              barThickness: 56,
+              maxBarThickness: 64,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: {
+            padding: { top: 16, right: 12, bottom: 8, left: 8 },
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { color: '#6B7280', font: { size: 12 } },
+              title: {
+                display: true,
+                text: 'Academic Year',
+                color: '#374151',
+                font: { size: 12, weight: '600' },
+              },
+            },
+            y: {
+              beginAtZero: true,
+              suggestedMax: 600,
+              grid: { color: 'rgba(15, 23, 42, 0.10)' },
+              ticks: { color: '#6B7280', stepSize: 100 },
+              title: {
+                display: true,
+                text: 'Total Number of Job Offers',
+                color: '#374151',
+                font: { size: 12, weight: '600' },
+              },
+            },
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                // @ts-ignore
+                label: (ctx) => `${ctx.parsed.y}`,
+              },
+            },
+          },
+        },
+        plugins: [
+          {
+            id: 'valueLabels',
+            // @ts-ignore
+            afterDatasetsDraw: (chart) => {
+              const { ctx } = chart;
+              ctx.save();
+              ctx.font = '12px serif';
+              ctx.fillStyle = '#111827';
+              ctx.textAlign = 'center';
+              // @ts-ignore
+              const meta = chart.getDatasetMeta(0);
+              // @ts-ignore
+              meta.data.forEach((bar, index) => {
+                const value = chart.data.datasets[0].data[index];
+                // @ts-ignore
+                ctx.fillText(value, bar.x, bar.y - 6);
+              });
+              ctx.restore();
+            },
+          },
+        ],
+      });
+    }
+  }, [isChartReady]);
+
+  useEffect(() => {
+    if (isChartReady && lineChartRef.current) {
+      if (lineChartInstance.current) {
+        lineChartInstance.current.destroy();
+      }
+
+      // @ts-ignore - Chart is loaded via CDN script
+      const ctx = lineChartRef.current.getContext('2d');
+      // @ts-ignore
+      lineChartInstance.current = new window.Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: PACKAGES_OFFERED.labels,
+          datasets: [
+            {
+              label: 'Highest',
+              data: PACKAGES_OFFERED.highest,
+              borderColor: '#1E4FA2',
+              backgroundColor: '#1E4FA2',
+              pointBackgroundColor: '#1E4FA2',
+              pointRadius: 4,
+              pointHoverRadius: 5,
+              borderWidth: 3,
+              tension: 0.3,
+            },
+            {
+              label: 'Average',
+              data: PACKAGES_OFFERED.average,
+              borderColor: '#70D3FF',
+              backgroundColor: '#70D3FF',
+              pointBackgroundColor: '#70D3FF',
+              pointRadius: 4,
+              pointHoverRadius: 5,
+              borderWidth: 3,
+              tension: 0.3,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: { padding: { top: 10, right: 18, bottom: 8, left: 8 } },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { color: '#6B7280' },
+              title: {
+                display: true,
+                text: 'Years',
+                color: '#374151',
+                font: { size: 12, weight: '600' },
+              },
+            },
+            y: {
+              beginAtZero: true,
+              suggestedMax: 60,
+              grid: { color: 'rgba(15, 23, 42, 0.18)' },
+              ticks: { color: '#6B7280', stepSize: 10 },
+              title: {
+                display: true,
+                text: 'Package',
+                color: '#374151',
+                font: { size: 12, weight: '600' },
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top',
+              align: 'center',
+              labels: {
+                usePointStyle: true,
+                pointStyle: 'circle',
+                boxWidth: 8,
+                color: '#111827',
+                font: { size: 12, weight: '600' },
+              },
+            },
+            tooltip: {
+              callbacks: {
+                // @ts-ignore
+                label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y}`,
+              },
+            },
+          },
+        },
+      });
+    }
+  }, [isChartReady]);
 
   const handleProgramChange = (program: string) => {
     if (program === 'overview') {
@@ -155,6 +377,45 @@ export default function Demographic() {
       {/* MAIN CONTENT */}
       <main className="bg-white py-20" id="demographics">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
+          {/* Placement Offers Bar Chart */}
+          <section className="mb-12">
+            <div className="mb-6 text-center lg:text-left">
+              <div className="inline-block px-3 py-1 rounded-full bg-brand-800/5 text-brand-800 font-semibold">
+                PLACEMENT OFFERS
+              </div>
+              <h2 className="mt-3 text-2xl font-semibold text-gray-900">Session-wise Placement Offers</h2>
+              <p className="mt-2 text-muted max-w-3xl">
+                Placement offers across recent academic sessions.
+              </p>
+            </div>
+
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-glow-md">
+              <div className="h-[360px] w-full">
+                <canvas ref={barChartRef} id="placementOffersChart" className="w-full h-full"></canvas>
+              </div>
+            </div>
+          </section>
+
+           {/* Packages Offered Line Chart */}
+          <section className="mb-12">
+            <div className="mb-6 text-center lg:text-left">
+              <div className="inline-block px-3 py-1 rounded-full bg-brand-800/5 text-brand-800 font-semibold">
+                PACKAGES OFFERED
+              </div>
+              <h2 className="mt-3 text-2xl font-semibold text-gray-900">Highest vs Average Packages</h2>
+              <p className="mt-2 text-muted max-w-3xl">
+                Year-wise comparison of highest and average packages offered.
+              </p>
+            </div>
+
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-glow-md">
+              <div className="h-[360px] w-full">
+                <canvas ref={lineChartRef} id="packagesLineChart" className="w-full h-full"></canvas>
+              </div>
+            </div>
+          </section>
+
           {/* Top title */}
           <div className="mb-8 text-center lg:text-left">
             <div className="inline-block px-3 py-1 rounded-full bg-brand-800/5 text-brand-800 font-semibold">
