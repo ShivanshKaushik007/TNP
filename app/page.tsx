@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { FlipWords } from '@/components/ui/flip-words';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { HoverSlider, HoverSliderImage, HoverSliderImageWrap, TextStaggerHover } from '@/components/ui/animated-slideshow';
+import { InteractiveSelector } from '@/components/ui/interactive-selector';
+import SplitText from '@/components/ui/SplitText';
 
 const INFRASTRUCTURE_SLIDES = [
   {
@@ -49,6 +51,45 @@ const INFRASTRUCTURE_SLIDES = [
     imageUrl: "/images/presentation.jpg",
     description: "Company presentation before the start of the selection process"
   },
+];
+
+const GALLERY_OPTIONS = [
+  {
+    title: "Campus View",
+    description: "Our beautiful campus grounds",
+    image: "/images/campus.jpg",
+    icon: "Building2"
+  },
+  {
+    title: "Library",
+    description: "State-of-the-art learning resources",
+    image: "/images/library.jpeg",
+    icon: "BookOpen"
+  },
+  {
+    title: "TnP Office",
+    description: "Training and Placement Cell",
+    image: "/images/tnproom.jpg",
+    icon: "Users"
+  },
+  {
+    title: "Auditorium",
+    description: "Modern presentation facilities",
+    image: "/images/auditorium.png",
+    icon: "Presentation"
+  },
+  {
+    title: "Group Discussion",
+    description: "Interactive learning spaces",
+    image: "/images/gd.jpg",
+    icon: "MessageSquare"
+  },
+  {
+    title: "Events",
+    description: "Company presentations & workshops",
+    image: "/images/presentation.jpg",
+    icon: "GraduationCap"
+  }
 ];
 
 export default function Home() {
@@ -377,7 +418,7 @@ export default function Home() {
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-800">About Training & Placement Cell</h2>
+            <SplitText text="About Training & Placement Cell" tag="h2" className="text-3xl md:text-4xl font-bold text-brand-800" delay={30} duration={1} splitType="chars" from={{ opacity: 0, y: 20 }} to={{ opacity: 1, y: 0 }} />
             <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
             <p className="text-muted mt-6 max-w-3xl mx-auto">We are dedicated to facilitating successful career launches for our students through industry collaborations, skill development programs, and placement opportunities.</p>
           </div>
@@ -459,7 +500,7 @@ export default function Home() {
       <section id="stats" className="py-20 bg-brand-800 text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold">Placement Statistics</h2>
+            <SplitText text="Placement Statistics" tag="h2" className="text-3xl md:text-4xl font-bold" delay={30} duration={1} splitType="chars" from={{ opacity: 0, y: 20 }} to={{ opacity: 1, y: 0 }} />
             <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
             <p className="text-white/80 mt-6 max-w-3xl mx-auto">Our consistent track record of excellent placements reflects the quality of education and talent at IET Lucknow.</p>
           </div>
@@ -498,11 +539,12 @@ export default function Home() {
       {/* Recruiters Section */}
       <section id="recruiters" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between mb-12">
-            <div className="text-center md:text-left mb-6 md:mb-0">
-              <h2 className="text-3xl font-bold text-brand-800">Our Esteemed Recruiters</h2>
-              <p className="text-muted mt-2">Top companies that trust and recruit from IET Lucknow</p>
-            </div>
+          <div className="text-center mb-12">
+            <SplitText text="Our Esteemed Recruiters" tag="h2" className="text-3xl md:text-4xl font-bold text-brand-800" delay={30} duration={1} splitType="chars" from={{ opacity: 0, y: 20 }} to={{ opacity: 1, y: 0 }} />
+            <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
+            <p className="text-muted mt-6 max-w-2xl mx-auto">
+              Top companies that trust and recruit from IET Lucknow, partnering with us to discover exceptional talent.
+            </p>
           </div>
 
           <div className="relative group overflow-hidden py-8 px-4 sm:px-12">
@@ -593,7 +635,7 @@ export default function Home() {
       <section id="infrastructure" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-800">Facilities</h2>
+            <SplitText text="Facilities" tag="h2" className="text-3xl md:text-4xl font-bold text-brand-800" delay={30} duration={1} splitType="chars" from={{ opacity: 0, y: 20 }} to={{ opacity: 1, y: 0 }} />
             <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
             <p className="text-muted mt-6 max-w-2xl mx-auto">
               Explore our state-of-the-art facilities designed to foster innovation and academic excellence.
@@ -636,37 +678,14 @@ export default function Home() {
       <section id="gallery" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-800">Campus Gallery</h2>
+            <SplitText text="Campus Gallery" tag="h2" className="text-3xl md:text-4xl font-bold text-brand-800" delay={30} duration={1} splitType="chars" from={{ opacity: 0, y: 20 }} to={{ opacity: 1, y: 0 }} />
             <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
             <p className="text-muted mt-6 max-w-2xl mx-auto">
               A glimpse into life at IET Lucknow through our facilities, events, and learning spaces.
             </p>
           </div>
 
-          <div className="relative">
-            <div
-              id="gallery-slider"
-              className="relative h-[240px] sm:h-[300px] md:h-[380px] overflow-hidden">
-              <div className="gallery-slide absolute inset-0 opacity-100 transition-opacity duration-700 min-w-full w-full h-full overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
-                <img src="/images/campus.jpg" alt="Campus" className="w-full h-full object-cover" />
-              </div>
-              <div className="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-700 min-w-full w-full h-full overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
-                <img src="/images/library.jpeg" alt="Library" className="w-full h-full object-cover" />
-              </div>
-              <div className="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-700 min-w-full w-full h-full overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
-                <img src="/images/tnproom.jpg" alt="Training and Placement Office" className="w-full h-full object-cover" />
-              </div>
-              <div className="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-700 min-w-full w-full h-full overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
-                <img src="/images/auditorium.png" alt="Auditorium" className="w-full h-full object-cover" />
-              </div>
-              <div className="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-700 min-w-full w-full h-full overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
-                <img src="/images/gd.jpg" alt="Group Discussion" className="w-full h-full object-cover" />
-              </div>
-              <div className="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-700 min-w-full w-full h-full overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
-                <img src="/images/presentation.jpg" alt="Company Presentation" className="w-full h-full object-cover" />
-              </div>
-            </div>
-          </div>
+          <InteractiveSelector options={GALLERY_OPTIONS} />
 
           <div className="mt-8 text-center">
             <Link
@@ -686,7 +705,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-800">Our Global Collaboration</h2>
+            <SplitText text="Our Global Collaboration" tag="h2" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-800" delay={30} duration={1} splitType="chars" from={{ opacity: 0, y: 20 }} to={{ opacity: 1, y: 0 }} />
             <div className="h-1.5 w-16 sm:w-20 bg-brand-accent rounded-full mx-auto mt-3 sm:mt-4"></div>
             <p className="text-muted mt-4 sm:mt-6 max-w-3xl mx-auto text-sm sm:text-base px-4">
               Building international partnerships to enhance technical education and create global opportunities for our
@@ -877,7 +896,7 @@ export default function Home() {
       <section id="students" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-800">Student Resources</h2>
+            <SplitText text="Student Resources" tag="h2" className="text-3xl md:text-4xl font-bold text-brand-800" delay={30} duration={1} splitType="chars" from={{ opacity: 0, y: 20 }} to={{ opacity: 1, y: 0 }} />
             <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
             <p className="text-muted mt-6 max-w-3xl mx-auto">Comprehensive resources and guidance to help students prepare for
               placements and build successful careers.</p>
