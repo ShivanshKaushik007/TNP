@@ -274,8 +274,6 @@ export default function Procedure() {
             </div>
           </div>
         </main>
-
-        <Footer />
       </div>
     );
 }
