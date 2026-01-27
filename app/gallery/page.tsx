@@ -1,3 +1,5 @@
+import { AnimatedGroup } from '@/components/ui/animated-group';
+
 export default function GalleryPage() {
   const sections = [
     {
@@ -137,7 +139,10 @@ export default function GalleryPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <AnimatedGroup
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                preset="scale"
+              >
                 {section.items.map((item) => (
                   <div
                     key={item.title}
@@ -162,7 +167,7 @@ export default function GalleryPage() {
                     </div>
                   </div>
                 ))}
-              </div>
+              </AnimatedGroup>
             </div>
           ))}
         </div>

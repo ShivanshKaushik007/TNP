@@ -8,6 +8,7 @@ const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
   display: 'swap',
+  variable: '--font-poppins',
 });
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${poppins.className} bg-white text-brand-800 antialiased overflow-x-hidden`}>
+      <body className={`${poppins.className} ${poppins.variable} bg-white text-brand-800 antialiased overflow-x-hidden`}>
         <Header />
         {children}
         <Footer />
