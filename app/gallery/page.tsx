@@ -34,11 +34,11 @@ export default function GalleryPage() {
     description:
       "Workshops, mock drives, and engagement sessions hosted by the T&P Cell.",
     image: [
-      "/DLF/IMG-20260117-WA0017.jpg",
-      "/DLF/IMG-20260117-WA0021.jpg",
+      "/DLF/IMG-20260117-WA0023.jpg",
+      "/TCS/IMG-20260119-WA0056.jpg",
       "/Inmobi/IMG-20250909-WA0011.jpg",
       "/TCS/IMG_20260119_092455290_HDR.jpg",
-      "/TCS/IMG_20260119_151852755_HDR.jpg",
+      "/ZETA/IMG-20250828-WA0079.jpg",
       "/VECV/IMG-20260109-WA0026.jpg",     
     ],
   };
