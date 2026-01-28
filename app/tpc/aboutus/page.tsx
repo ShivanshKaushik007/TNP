@@ -155,125 +155,103 @@ export default function AboutUsPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-                <article className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-3xl font-extrabold text-brand-800 group-hover:text-brand-accent transition-colors">2024</h3>
-                    <div className="p-2 bg-brand-50 rounded-lg text-brand-accent">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <p className="text-sm text-brand-800 font-semibold mb-4 leading-relaxed">500+ students placed across leading
-                    product &amp; service companies.</p>
+                {[
+                  {
+                    year: "2024",
+                    description: "500+ students placed across leading product & service companies.",
+                    highest: "52 LPA",
+                    average: "9.2 LPA",
+                    recruiters: [
+                      { name: "Amazon", logo: "https://www.google.com/s2/favicons?domain=amazon.com&sz=128" },
+                      { name: "Microsoft", logo: "https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" },
+                      { name: "TCS", logo: "/images/pastRecruiter/tcs1.png" },
+                      // { name: "Infosys", logo: "https://www.google.com/s2/favicons?domain=infosys.com&sz=128" }
+                    ]
+                  },
+                  {
+                    year: "2023",
+                    description: "470+ offers across multiple engineering branches.",
+                    highest: "45 LPA",
+                    average: "8.5 LPA",
+                    recruiters: [
+                      { name: "Wipro", logo: "https://www.google.com/s2/favicons?domain=wipro.com&sz=128" },
+                      { name: "HCL", logo: "/images/pastRecruiter/hcl1.png" },
+                      { name: "Capgemini", logo: "https://www.google.com/s2/favicons?domain=capgemini.com&sz=128" }
+                    ]
+                  },
+                  {
+                    year: "2022",
+                    description: "Strong campus presence with core and IT companies.",
+                    highest: "38 LPA",
+                    average: "7.8 LPA",
+                    recruiters: [
+                      { name: "TCS", logo: "/images/pastRecruiter/tcs1.png" },
+                      { name: "Infosys", logo: "https://www.google.com/s2/favicons?domain=infosys.com&sz=128" },
+                      { name: "IBM", logo: "/images/pastRecruiter/ibm-logo-hd.png" }
+                    ]
+                  },
+                  {
+                    year: "2021",
+                    description: "Resilient performance despite global challenges.",
+                    highest: "32 LPA",
+                    average: "7.1 LPA",
+                    recruiters: [
+                      { name: "Accenture", logo: "https://www.google.com/s2/favicons?domain=accenture.com&sz=128" },
+                      { name: "Cognizant", logo: "https://www.google.com/s2/favicons?domain=cognizant.com&sz=128" },
+                      { name: "Tech Mahindra", logo: "https://www.google.com/s2/favicons?domain=techmahindra.com&sz=128" }
+                    ]
+                  }
+                ].map((record, index) => (
+                  <div key={index} className="relative">
+                    <article className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-2 hover:relative hover:z-20 flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center justify-between mb-6">
+                          <h3 className="text-3xl font-extrabold text-brand-800 group-hover:text-brand-accent transition-colors">{record.year}</h3>
+                          <div className="p-2 bg-brand-50 rounded-lg text-brand-accent">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                          </div>
+                        </div>
 
-                  <div className="space-y-4 pt-4 border-t border-gray-50">
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-muted uppercase tracking-wider">Highest CTC</span>
-                      <span className="text-brand-accent font-bold">52 LPA</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-muted uppercase tracking-wider">Average CTC</span>
-                      <span className="text-brand-800 font-bold">9.2 LPA</span>
-                    </div>
-                    <div className="mt-4">
-                      <span className="text-[10px] text-muted uppercase font-bold tracking-widest block mb-2">Top
-                        Recruiters</span>
-                      <div className="text-xs text-muted italic">Amazon, Microsoft, TCS, Infosys</div>
-                    </div>
-                  </div>
-                </article>
+                        <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                          <div className="overflow-hidden">
+                            <p className="text-sm text-brand-800 font-semibold mb-6 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                              {record.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
 
-                <article className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-3xl font-extrabold text-brand-800 group-hover:text-brand-accent transition-colors">2023</h3>
-                    <div className="p-2 bg-brand-50 rounded-lg text-brand-accent">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                      </svg>
-                    </div>
+                      <div className="space-y-4 pt-4 border-t border-gray-50 mt-auto">
+                        <div className="flex justify-between items-center">
+                          <span className="text-xs text-muted uppercase tracking-wider">Highest CTC</span>
+                          <span className="text-brand-accent font-bold">{record.highest}</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-xs text-muted uppercase tracking-wider">Average CTC</span>
+                          <span className="text-brand-800 font-bold">{record.average}</span>
+                        </div>
+                        <div className="mt-4">
+                          <span className="text-[10px] text-muted uppercase font-bold tracking-widest block mb-3">Top Recruiters</span>
+                          <div className="flex items-center justify-between w-full">
+                            {record.recruiters.map((recruiter, idx) => (
+                              <img
+                                key={idx}
+                                src={recruiter.logo}
+                                alt={recruiter.name}
+                                title={recruiter.name}
+                                className="h-10 w-auto object-contain opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-200"
+                                loading="lazy"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </article>
                   </div>
-                  <p className="text-sm text-brand-800 font-semibold mb-4 leading-relaxed">470+ offers across multiple
-                    engineering branches.</p>
-
-                  <div className="space-y-4 pt-4 border-t border-gray-50">
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-muted uppercase tracking-wider">Highest CTC</span>
-                      <span className="text-brand-accent font-bold">45 LPA</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-muted uppercase tracking-wider">Average CTC</span>
-                      <span className="text-brand-800 font-bold">8.5 LPA</span>
-                    </div>
-                    <div className="mt-4">
-                      <span className="text-[10px] text-muted uppercase font-bold tracking-widest block mb-2">Top
-                        Recruiters</span>
-                      <div className="text-xs text-muted italic">Wipro, HCL, Capgemini</div>
-                    </div>
-                  </div>
-                </article>
-
-                <article className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-3xl font-extrabold text-brand-800 group-hover:text-brand-accent transition-colors">2022</h3>
-                    <div className="p-2 bg-brand-50 rounded-lg text-brand-accent">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <p className="text-sm text-brand-800 font-semibold mb-4 leading-relaxed">Strong campus presence with core and
-                    IT companies.</p>
-
-                  <div className="space-y-4 pt-4 border-t border-gray-50">
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-muted uppercase tracking-wider">Highest CTC</span>
-                      <span className="text-brand-accent font-bold">38 LPA</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-muted uppercase tracking-wider">Average CTC</span>
-                      <span className="text-brand-800 font-bold">7.8 LPA</span>
-                    </div>
-                    <div className="mt-4">
-                      <span className="text-[10px] text-muted uppercase font-bold tracking-widest block mb-2">Top
-                        Recruiters</span>
-                      <div className="text-xs text-muted italic">TCS, Infosys, IBM</div>
-                    </div>
-                  </div>
-                </article>
-
-                <article className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-3xl font-extrabold text-brand-800 group-hover:text-brand-accent transition-colors">2021</h3>
-                    <div className="p-2 bg-brand-50 rounded-lg text-brand-accent">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <p className="text-sm text-brand-800 font-semibold mb-4 leading-relaxed">Resilient performance despite global
-                    challenges.</p>
-
-                  <div className="space-y-4 pt-4 border-t border-gray-50">
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-muted uppercase tracking-wider">Highest CTC</span>
-                      <span className="text-brand-accent font-bold">32 LPA</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-muted uppercase tracking-wider">Average CTC</span>
-                      <span className="text-brand-800 font-bold">7.1 LPA</span>
-                    </div>
-                    <div className="mt-4">
-                      <span className="text-[10px] text-muted uppercase font-bold tracking-widest block mb-2">Top
-                        Recruiters</span>
-                      <div className="text-xs text-muted italic">Accenture, Cognizant, Tech</div>
-                    </div>
-                  </div>
-                </article>
+                ))}
               </div>
             </div>
           </section>
