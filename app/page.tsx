@@ -717,7 +717,7 @@ export default function Home() {
 
             <div className="space-y-6 lg:space-y-8">
 
-              <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 shadow-lg hover-lift border border-gray-100">
+                <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 shadow-lg hover-lift border border-gray-100 relative overflow-hidden">
                <GlowingEffect
                   blur={0}
                   borderWidth={3}
@@ -775,7 +775,7 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
 
                 <div
-                  className="bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg hover-lift border border-gray-100 group">
+                  className="bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg hover-lift border border-gray-100 group relative overflow-hidden">
                     <GlowingEffect
                   blur={0}
                   borderWidth={3}
@@ -797,7 +797,7 @@ export default function Home() {
 
 
                 <div
-                  className="bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg hover-lift border border-gray-100 group">
+                  className="bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg hover-lift border border-gray-100 group relative overflow-hidden">
                     <GlowingEffect
                   blur={0}
                   borderWidth={3}
@@ -817,8 +817,8 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
 
+            </div>
 
             <div className="relative">
 
@@ -845,12 +845,8 @@ export default function Home() {
                 </div>
 
 
-                <div
-                  className="absolute top-0 right-0 w-20 h-20 lg:w-32 lg:h-32 bg-white/10 rounded-full -translate-y-8 lg:-translate-y-16 translate-x-8 lg:translate-x-16">
-                </div>
-                <div
-                  className="absolute bottom-0 left-0 w-16 h-16 lg:w-24 lg:h-24 bg-brand-accent/30 rounded-full -translate-x-4 lg:-translate-x-8 translate-y-4 lg:translate-y-8">
-                </div>
+                <div className="absolute top-0 right-0 w-20 h-20 lg:w-32 lg:h-32 bg-white/10 rounded-full -translate-y-8 lg:-translate-y-16 translate-x-8 lg:translate-x-16"></div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 lg:w-24 lg:h-24 bg-brand-accent/30 rounded-full -translate-x-4 lg:-translate-x-8 translate-y-4 lg:translate-y-8"></div>
               </div>
 
 
@@ -903,7 +899,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white p-8 rounded-2xl shadow hover-lift">
+            <div className="bg-white p-8 rounded-2xl shadow hover-lift relative overflow-hidden">
               <GlowingEffect
                   blur={0}
                   borderWidth={3}
@@ -932,7 +928,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow hover-lift">
+            <div className="bg-white p-8 rounded-2xl shadow hover-lift relative overflow-hidden">
               <GlowingEffect
                   blur={0}
                   borderWidth={3}
@@ -960,7 +956,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow hover-lift">
+            <div className="bg-white p-8 rounded-2xl shadow hover-lift relative overflow-hidden">
               <GlowingEffect
                   blur={0}
                   borderWidth={3}
@@ -1009,7 +1005,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <Link href="/downloads" className="bg-white p-5 rounded-xl shadow flex items-center gap-4 hover-lift group">
+            <Link href="/downloads" className="bg-white p-5 rounded-xl shadow flex items-center gap-4 hover-lift group relative overflow-hidden">
             <GlowingEffect
                   blur={0}
                   borderWidth={3}
@@ -1032,7 +1028,7 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link href="/downloads" className="bg-white p-5 rounded-xl shadow flex items-center gap-4 hover-lift group">
+            <Link href="/downloads" className="bg-white p-5 rounded-xl shadow flex items-center gap-4 hover-lift group relative overflow-hidden">
             <GlowingEffect
                   blur={0}
                   borderWidth={3}
@@ -1056,7 +1052,7 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link href="/downloads" className="bg-white p-5 rounded-xl shadow flex items-center gap-4 hover-lift group">
+            <Link href="/downloads" className="bg-white p-5 rounded-xl shadow flex items-center gap-4 hover-lift group relative overflow-hidden">
             <GlowingEffect
                   blur={0}
                   borderWidth={3}
@@ -1079,7 +1075,7 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link href="/faq" className="bg-white p-5 rounded-xl shadow flex items-center gap-4 hover-lift group">
+            <Link href="/faq" className="bg-white p-5 rounded-xl shadow flex items-center gap-4 hover-lift group relative overflow-hidden">
             <GlowingEffect
                   blur={0}
                   borderWidth={3}

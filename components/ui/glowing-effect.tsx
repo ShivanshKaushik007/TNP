@@ -118,10 +118,10 @@ const GlowingEffect = memo(
     }, [handleMove, disabled]);
 
     return (
-      <>
+      <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit] isolate">
         <div
           className={cn(
-            "pointer-events-none absolute -inset-px hidden rounded-[inherit] border opacity-0 transition-opacity",
+            "pointer-events-none absolute inset-0 hidden rounded-[inherit] border opacity-0 transition-opacity",
             glow && "opacity-100",
             variant === "white" && "border-white",
             disabled && "!block"
@@ -168,9 +168,9 @@ const GlowingEffect = memo(
         >
           <div
             className={cn(
-              "glow",
+              "glow relative absolute inset-0",
               "rounded-[inherit]",
-              'after:content-[""] after:rounded-[inherit] after:absolute after:inset-[calc(-1*var(--glowingeffect-border-width))]',
+              'after:content-[""] after:rounded-[inherit] after:absolute after:inset-0',
               "after:[border:var(--glowingeffect-border-width)_solid_transparent]",
               "after:[background:var(--gradient)] after:[background-attachment:fixed]",
               "after:opacity-[var(--active)] after:transition-opacity after:duration-300",
@@ -180,7 +180,7 @@ const GlowingEffect = memo(
             )}
           />
         </div>
-      </>
+      </div>
     );
   }
 );
