@@ -370,7 +370,7 @@ export default function Home() {
             </div>
 
             <div className="slide-in-right">
-              <a href="#infrastructure" className="relative block group cursor-pointer">
+              <a href="/gallery" className="relative block group cursor-pointer">
                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl transition-all duration-500 group-hover:bg-white/15 group-hover:border-white/40">
                   <div className="relative overflow-hidden rounded-xl">
                     <img src="/images/college_image.svg" alt="IET Campus"
