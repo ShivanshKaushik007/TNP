@@ -160,12 +160,11 @@ export default function AboutUsPage() {
                     year: "2024",
                     description: "500+ students placed across leading product & service companies.",
                     highest: "52 LPA",
-                    average: "9.2 LPA",
+                    average: "12 LPA",
                     recruiters: [
                       { name: "Amazon", logo: "https://www.google.com/s2/favicons?domain=amazon.com&sz=128" },
                       { name: "Microsoft", logo: "https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" },
                       { name: "TCS", logo: "/images/pastRecruiter/tcs1.png" },
-                      // { name: "Infosys", logo: "https://www.google.com/s2/favicons?domain=infosys.com&sz=128" }
                     ]
                   },
                   {
