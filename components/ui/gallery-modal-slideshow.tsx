@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 
 export type SlideshowImageInput =
   | string
@@ -146,19 +147,19 @@ export default function GalleryModalSlideshow({
           aria-modal="true"
           className="relative w-full max-w-5xl rounded-2xl bg-neutral-950/90 border border-white/10 shadow-2xl overflow-hidden"
         >
-          <div className="flex items-center justify-between gap-3 px-4 sm:px-6 py-4 border-b border-white/10">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 px-3 sm:px-6 py-3 sm:py-4 border-b border-white/10">
             <div className="min-w-0">
-              <h2 className="text-white font-semibold truncate">{title}</h2>
-              <p className="text-white/60 text-sm truncate">
+              <h2 className="text-white font-semibold truncate text-sm sm:text-base">{title}</h2>
+              <p className="text-white/60 text-xs sm:text-sm truncate">
                 {hasImages ? `${index + 1} / ${normalized.length}` : "No images"}
               </p>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-end gap-2">
               <button
                 type="button"
                 onClick={() => setPlaying((p) => !p)}
-                className="inline-flex items-center justify-center rounded-xl px-3 py-2 text-sm font-medium bg-white/10 text-white hover:bg-white/15 transition"
+                className="inline-flex items-center justify-center rounded-xl px-3 py-2.5 text-sm font-medium bg-white/10 text-white hover:bg-white/15 transition touch-manipulation"
                 aria-label={playing ? "Pause slideshow" : "Play slideshow"}
                 disabled={!hasImages || normalized.length <= 1}
               >
@@ -192,11 +193,13 @@ export default function GalleryModalSlideshow({
           <div className="relative bg-black">
             <div className="relative w-full h-[65vh] sm:h-[70vh]">
               {current ? (
-                <img
+                <Image
                   src={current.src}
                   alt={current.alt}
-                  className="absolute inset-0 w-full h-full object-contain"
+                  fill
+                  className="object-contain"
                   draggable={false}
+                  sizes="(max-width: 768px) 100vw, 70vh"
                 />
               ) : (
                 <div className="absolute inset-0 flex items-center justify-center text-white/70">
@@ -209,7 +212,7 @@ export default function GalleryModalSlideshow({
             <button
               type="button"
               onClick={goPrev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full w-11 h-11 bg-white/10 text-white hover:bg-white/15 transition disabled:opacity-40 disabled:hover:bg-white/10"
+              className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 rounded-full w-11 h-11 min-w-[44px] min-h-[44px] bg-white/10 text-white hover:bg-white/15 transition disabled:opacity-40 disabled:hover:bg-white/10 touch-manipulation"
               aria-label="Previous image"
               disabled={!hasImages || normalized.length <= 1}
             >
@@ -231,7 +234,7 @@ export default function GalleryModalSlideshow({
             <button
               type="button"
               onClick={goNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full w-11 h-11 bg-white/10 text-white hover:bg-white/15 transition disabled:opacity-40 disabled:hover:bg-white/10"
+              className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 rounded-full w-11 h-11 min-w-[44px] min-h-[44px] bg-white/10 text-white hover:bg-white/15 transition disabled:opacity-40 disabled:hover:bg-white/10 touch-manipulation"
               aria-label="Next image"
               disabled={!hasImages || normalized.length <= 1}
             >
@@ -251,10 +254,9 @@ export default function GalleryModalSlideshow({
             </button>
           </div>
 
-          <div className="px-4 sm:px-6 py-4 border-t border-white/10">
-            <p className="text-white/60 text-xs">
-rrows  to navigate,  Space  to play/pause.
-              Tips: Press Esc to close, use arrow keys to navigate, and Space to play/pause.
+          <div className="px-4 sm:px-6 py-3 sm:py-4 border-t border-white/10">
+            <p className="text-white/60 text-xs text-center sm:text-left">
+              Tips: Press Esc to close, arrow keys to navigate, Space to play/pause.
             </p>
           </div>
         </div>

@@ -135,3 +135,12 @@ html {
 #top {
   scroll-margin-top: 100px;
 }
+
+/* Hide scrollbar for past recruiters slider while keeping scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

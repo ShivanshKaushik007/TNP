@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { TypewriterEffect } from '@/components/ui/typewriter-effect';
 import { MagicText } from '@/components/ui/magic-text';
 
@@ -27,12 +28,14 @@ export default function Message() {
           <div className="bg-white border border-gray-200 rounded-2xl shadow-glow-md p-6 sm:p-8 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
               <div className="flex flex-col items-center lg:items-stretch text-center lg:text-left">
-                <div className="w-full flex-1 mb-4 lg:mb-6">
-                  <img
+                <div className="w-full flex-1 mb-4 lg:mb-6 relative aspect-[3/4] min-h-[280px] rounded-xl overflow-hidden">
+                  <Image
                     src="/images/akt.jpeg"
                     alt="Dr. Arun Kumar Tiwari"
-                    className="w-full h-full rounded-xl object-cover shadow-md border border-gray-100"
+                    fill
+                    className="rounded-xl object-cover shadow-md border border-gray-100"
                     loading="lazy"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
                   />
                 </div>
 

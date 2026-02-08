@@ -26,11 +26,11 @@ export default function GallerySection({
     <div>
       <Gallerythumb title={title} description={description} images={images} />
 
-      <div className="mt-8 mb-16 text-center">
+      <div className="mt-6 sm:mt-8 mb-10 sm:mb-16 text-center px-3">
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="inline-flex items-center gap-2 bg-brand-800 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+          className="inline-flex items-center justify-center gap-2 bg-brand-800 text-white w-full sm:w-auto min-w-0 px-5 sm:px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
         >
           <span>View More</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
