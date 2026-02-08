@@ -20,11 +20,6 @@ body {
   border-radius: 999px;
 }
 
-:focus {
-  outline: 2px solid rgba(44, 116, 179, 0.15);
-  outline-offset: 3px;
-}
-
 .hero-section {
   background: linear-gradient(135deg, #0A2647 0%, #144272 50%, #2C74B3 100%);
   position: relative;

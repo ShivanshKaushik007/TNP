@@ -13,42 +13,77 @@ const INFRASTRUCTURE_SLIDES = [
     id: "slide-1",
     title: "Placement Interviews",
     imageUrl: "/images/snf.jpg",
+    imageUrls: [
+      "/images/snf.jpg",
+      "/images/PI.jpg",
+      "/images/facilities/interview.jpg"
+    ],
     description: "Students and faculty members posing outside the director's office after company placement interviews."
   },
   {
     id: "slide-2",
     title: "Auditorium",
     imageUrl: "/images/auditorium.png",
+    imageUrls: [
+      "/images/auditorium.png",
+      "/images/facilities/audi.jpg",
+      "/images/facilities/presentation.jpg"
+    ],
     description: "State-of-the-art auditorium for company presentations and events."
   },
   {
     id: "slide-3",
     title: "Training Sessions",
     imageUrl: "/images/training session.jpg",
+    imageUrls: [
+      "/images/training session.jpg",
+      "/images/facilities/training.jpg",
+      "/images/facilities/workspace.webp"
+    ],
     description: "Offline Training Session managed by Training and Placement Cell"
   },
   {
     id: "slide-4",
     title: "Group Discussion",
     imageUrl: "/images/gd.jpg",
+    imageUrls: [
+      "/images/gd.jpg",
+      "/images/facilities/gd.jpg",
+      "/images/facilities/other_facilities.png"
+    ],
     description: "Group Discussion round conducted during recruitment drive"
   },
   {
     id: "slide-5",
     title: "Personal Interview",
     imageUrl: "/images/PI.jpg",
+    imageUrls: [
+      "/images/PI.jpg",
+      "/images/facilities/interview.jpg",
+      "/images/facilities/computer.png"
+    ],
     description: "Personal interview round with company recruiters at TnP Office"
   },
   {
     id: "slide-6",
-    title: "Offline Test",
+    title: "Online Test",
     imageUrl: "/images/offline test.jpg",
+    imageUrls: [
+      "/images/offline test.jpg",
+      "/images/facilities/computer.png",
+      "/images/facilities/workspace.webp"
+    ],
     description: "Offline test conducted as the part of the recruitment process"
   },
   {
     id: "slide-7",
     title: "Company Presentation",
     imageUrl: "/images/presentation.jpg",
+    imageUrls: [
+      "/images/presentation.jpg",
+      "/images/facilities/presentation.jpg",
+      "/images/auditorium.png"
+    ],
     description: "Company presentation before the start of the selection process"
   },
 ];
@@ -349,7 +384,7 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 text-center lg:text-left">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 text-center lg:text-left">
                 <div className="floating-card bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/10">
                   <div className="text-xs text-white/70 uppercase tracking-wider mb-1">Since</div>
                   <div className="font-bold text-2xl text-white">1984</div>
@@ -507,7 +542,7 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="bg-brand-700/30 rounded-xl p-6 backdrop-blur-sm">
-              <div className="flex justify-center item-center gap-1">
+              <div className="flex justify-center items-center gap-1">
                 <div className="text-4xl md:text-5xl font-bold mb-2 stat-number" data-target="25">0</div>
                 <div className="p-3 text-bold">%</div>
               </div>
@@ -515,7 +550,7 @@ export default function Home() {
               <div className="text-sm uppercase tracking-wider text-white/80">(2024-2025)</div>
             </div>
             <div className="bg-brand-700/30 rounded-xl p-6 backdrop-blur-sm">
-              <div className="flex justify-center item-center gap-1">
+              <div className="flex justify-center items-center gap-1">
                 <div className="text-4xl md:text-5xl font-bold mb-2 stat-number" data-target="90">0</div>
                 <div className="p-3 text-bold">+</div>
               </div>
@@ -547,36 +582,40 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="relative group overflow-hidden py-8 px-4 sm:px-12">
+          <div className="relative group overflow-hidden py-6 sm:py-8 px-2 sm:px-12">
             <button id="scroll-left"
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-30 bg-white/90 p-2 shadow-lg rounded-full hover:bg-brand-700 hover:text-white transition-all focus:outline-none border border-gray-200">
+              className="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 z-30 bg-white/90 p-2 shadow-lg rounded-full hover:bg-brand-700 hover:text-white transition-all focus:outline-none border border-gray-200">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
             <div id="logo-slider"
-              className="flex items-center gap-12 sm:gap-16 overflow-hidden whitespace-nowrap scroll-smooth">
+              className="flex items-center gap-8 sm:gap-16 overflow-x-auto overflow-y-hidden whitespace-nowrap scroll-smooth">
               <img src="/images/pastRecruiter/adobe.png" alt="Adobe" className="h-20 transition-all" />
-              <img src="/images/pastRecruiter/amazon.png" alt="Amazon" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/dlf.png" alt="DLF" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/google.png" alt="Google" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/ibm-logo-hd.png" alt="IBM" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/Inmobi.png" alt="Inmobi" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/amazon.png" alt="Amazon" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/volvo.png" alt="Volvo" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/inox.jpg" alt="Inox" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/torrent.png" alt="torrent" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/forbes.png" alt="Forbes" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/Intuit.png" alt="Intuit" className="h-16 w-20" loading="lazy" />
-              <img src="/images/pastRecruiter/globallogic.png" alt="GlobalLogic" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/zeta.png" alt="Zeta" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/hul.png" alt="HUL" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/uber.svg" alt="Uber" className="h-28" loading="lazy" />
-              <img src="/images/pastRecruiter/sprinklr.png" alt="Sprinklr" className="h-28" loading="lazy" />
+              <img src="/images/pastRecruiter/LT.avif" alt="L&T" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/tcs.png" alt="TCS" className="h-28 transition-all" />
-              <img src="/images/pastRecruiter/shapoorji.png" alt="Shapoorji" className="h-28 transition-all" />
-              <img src="/images/pastRecruiter/matrixcare.png" alt="MatrixCare" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/microsoft.png" alt="Microsoft" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/bharatelectronics.png" alt="Bharat Electronics" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/soti.png" alt="SOTI" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/paytm.png" alt="Paytm" className="h-28 transition-all" />
-              <img src="/images/pastRecruiter/sap.png" alt="SAP" className="h-28 transition-all" />
-            </div>
+             </div>
 
             <button id="scroll-right"
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-white/90 p-2 shadow-lg rounded-full hover:bg-brand-700 hover:text-white transition-all focus:outline-none border border-gray-200">
+              className="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-white/90 p-2 shadow-lg rounded-full hover:bg-brand-700 hover:text-white transition-all focus:outline-none border border-gray-200">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -643,7 +682,7 @@ export default function Home() {
           </div>
 
           <HoverSlider className="place-content-center">
-            <div className="flex flex-wrap items-center justify-evenly gap-6 md:gap-12">
+            <div className="flex flex-col md:flex-row items-center justify-evenly gap-6 md:gap-12">
               <div className="flex flex-col space-y-2 md:space-y-4">
                 {INFRASTRUCTURE_SLIDES.map((slide, index) => (
                   <TextStaggerHover
@@ -654,13 +693,13 @@ export default function Home() {
                   />
                 ))}
               </div>
-              <HoverSliderImageWrap className="w-full md:w-1/2 h-[350px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+              <HoverSliderImageWrap className="w-full md:w-1/2 h-[260px] sm:h-[320px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg border border-gray-100">
                 {INFRASTRUCTURE_SLIDES.map((slide, index) => (
                   <div key={slide.id} className="relative">
                     <HoverSliderImage
                       index={index}
                       imageUrl={slide.imageUrl}
-                      src={slide.imageUrl}
+                      imageUrls={slide.imageUrls}
                       alt={slide.title}
                       className="size-full object-cover"
                       loading="eager"
@@ -696,6 +735,35 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section id="glimpse" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <SplitText text="Glimpse of Placement Cell" tag="h2" className="text-3xl md:text-4xl font-bold text-brand-800" delay={30} duration={1} splitType="chars" from={{ opacity: 0, y: 20 }} to={{ opacity: 1, y: 0 }} />
+            <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
+            <p className="text-muted mt-6 max-w-2xl mx-auto">
+              A quick look at the energy, preparation, and success stories that define our Training &amp; Placement Cell.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-brand-800 to-brand-700 rounded-2xl p-4 sm:p-6 shadow-xl">
+              <div className="bg-black/40 rounded-xl overflow-hidden aspect-video">
+                <video
+                  className="w-full h-full object-cover"
+                  controls
+                  preload="metadata"
+                  poster="/images/college_image.svg"
+                >
+                  <source src="/videos/tnp_vid.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
           </div>
         </div>
       </section>

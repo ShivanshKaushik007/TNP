@@ -17,7 +17,6 @@ const instituteDocs = [
 
 const studentDocs = [
   { name: 'Placement Policy', href: '/files/Student_Placement_Policy.pdf', type: 'PDF' },
-  { name: 'Resume Template', href: '/files/Sample_Resume.docx', type: 'DOCX' },
   { name: 'Training Form', href: '/files/Training_Form.pdf', type: 'PDF' },
   { name: 'Internship NOC', href: '/files/Internship_noc.pdf', type: 'PDF' }
 ];
@@ -77,7 +76,7 @@ export default function DownloadsPage() {
               <span className="w-8 h-1 bg-brand-accent rounded-full"></span>
               STUDENT POLICIES &amp; FORMS
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {studentDocs.map((doc) => (
                 <div key={doc.name} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all group">
                   <div className="text-[10px] font-bold text-brand-accent uppercase mb-2">{doc.type}</div>

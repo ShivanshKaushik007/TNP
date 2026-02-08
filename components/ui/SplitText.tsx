@@ -41,6 +41,7 @@ const SplitText: React.FC<SplitTextProps> = ({
     const animationCompletedRef = useRef(false);
     const onCompleteRef = useRef(onLetterAnimationComplete);
     const [fontsLoaded, setFontsLoaded] = useState<boolean>(false);
+    const [enableAnimation, setEnableAnimation] = useState<boolean>(true);
 
     // Keep callback ref updated
     useEffect(() => {
@@ -48,6 +49,10 @@ const SplitText: React.FC<SplitTextProps> = ({
     }, [onLetterAnimationComplete]);
 
     useEffect(() => {
+        if (!('fonts' in document)) {
+            setFontsLoaded(true);
+            return;
+        }
         if (document.fonts.status === 'loaded') {
             setFontsLoaded(true);
         } else {
@@ -57,9 +62,25 @@ const SplitText: React.FC<SplitTextProps> = ({
         }
     }, []);
 
+    useEffect(() => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const smallScreen = window.matchMedia('(max-width: 640px)');
+        const updateMotion = () => {
+            setEnableAnimation(!(prefersReducedMotion.matches || smallScreen.matches));
+        };
+
+        updateMotion();
+        prefersReducedMotion.addEventListener('change', updateMotion);
+        smallScreen.addEventListener('change', updateMotion);
+        return () => {
+            prefersReducedMotion.removeEventListener('change', updateMotion);
+            smallScreen.removeEventListener('change', updateMotion);
+        };
+    }, []);
+
     useGSAP(
         () => {
-            if (!ref.current || !text || !fontsLoaded) return;
+            if (!ref.current || !text || !fontsLoaded || !enableAnimation) return;
             // Prevent re-animation if already completed
             if (animationCompletedRef.current) return;
             const el = ref.current as HTMLElement & {
@@ -159,7 +180,9 @@ const SplitText: React.FC<SplitTextProps> = ({
         const style: React.CSSProperties = {
             textAlign,
             wordWrap: 'break-word',
-            willChange: 'transform, opacity'
+            opacity: enableAnimation ? undefined : 1,
+            transform: enableAnimation ? undefined : 'none',
+            willChange: enableAnimation ? 'transform, opacity' : undefined
         };
         const classes = `split-parent overflow-hidden inline-block whitespace-normal ${className}`;
         switch (tag) {

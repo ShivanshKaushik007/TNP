@@ -9,6 +9,7 @@ type Person = {
   role: string;
   dept: string;
   email?: string;
+  emailp?: string;
   phone?: string;
   img?: string;
   href?: string;
@@ -17,36 +18,13 @@ type Person = {
 
 const leadership: Person[] = [
   {
-    name: "Prof. Vineet Kansal",
-    role: "Director",
-    dept: "IET, Lucknow",
-    email: "director@ietlucknow.ac.in",
-    img: "/images/vineet_kansal.jpg",
-    href: "https://www.ietlucknow.ac.in/people/vkansal"
-  },
-  {
     name: "Dr. Arun Kumar Tiwari",
     role: "Officer Incharge",
     dept: "Training & Placement Cell",
     email: "aruntiwari@ietlucknow.ac.in",
+    emailp: "placement@ietlucknow.ac.in",
     img: "/images/arun_tiwari.png",
     href: "https://www.ietlucknow.ac.in/people/aruntiwari"
-  },
-  {
-    name: "Dr. Pushkar Tripathi",
-    role: "Deputy In-charge",
-    dept: "Training & Placement Cell",
-    email: "pushkar.tripathi@ietlucknow.ac.in",
-    img: "/images/pushkart.jpg",
-    href: "https://www.ietlucknow.ac.in/people/ptripathi"
-  },
-  {
-    name: "Dr. Pragati Shukla",
-    role: "Deputy In-charge",
-    dept: "Training & Placement Cell",
-    email: "pragatishukla@ietlucknow.ac.in",
-    img: "/images/pshukla.jpg",
-    href: "https://www.ietlucknow.ac.in/people/pshukla"
   }
 ];
 
@@ -216,11 +194,11 @@ function PersonCard({ person, large = false }: { person: Person; large?: boolean
   const roleText = large ? "text-xs tracking-[0.2em]" : "text-[10px] tracking-[0.15em]";
   const baseClasses = "flex flex-col sm:flex-row items-center sm:items-start gap-8 group block overflow-hidden";
   const cardClass = large
-    ? `${baseClasses} bg-white rounded-[2.5rem] shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300`
+    ? `${baseClasses} bg-white rounded-[2.5rem] shadow-md hover:shadow-2xl  transition-all duration-300`
     : `${baseClasses} bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300`;
   const wrapperClass = large
-    ? "relative h-full rounded-[2.5rem] border-2 border-brand-100 hover:border-brand-accent transition-all duration-300"
-    : "relative h-full rounded-3xl border-2 border-gray-100 hover:border-brand-accent/40 transition-all duration-300";
+    ? "relative h-full rounded-[2.5rem] transition-all duration-300"
+    : "relative h-full rounded-3xl transition-all duration-300";
 
   const image = person.img ? (
     <img
@@ -249,12 +227,20 @@ function PersonCard({ person, large = false }: { person: Person; large?: boolean
         <div className={`${large ? "text-base mt-1" : "text-sm"} text-muted font-medium mb-6`}>{person.dept}</div>
         <div className="flex flex-wrap justify-center sm:justify-start gap-3">
           {person.email && (
+            <div className="flex flex-col sm:flex-row items-center gap-2">
             <a
               href={`mailto:${person.email}`}
               className="flex items-center gap-2 px-4 py-2.5 bg-brand-50 rounded-xl text-brand-700 hover:bg-brand-700 hover:text-white transition-all duration-200 border border-brand-100/50"
             >
               <span className="text-xs font-bold truncate">{person.email}</span>
             </a>
+            <a
+              href={`mailto:${person.emailp}`}
+              className="flex items-center gap-2 px-4 py-2.5 bg-brand-50 rounded-xl text-brand-700 hover:bg-brand-700 hover:text-white transition-all duration-200 border border-brand-100/50"
+            >
+              <span className="text-xs font-bold truncate">{person.emailp}</span>
+            </a>
+            </div>
           )}
           {phoneHref && (
             <a
@@ -331,11 +317,12 @@ export default function ContactUsPage() {
           </div>
 
           <div className="mb-20">
-            <h2 className="text-xl font-bold text-brand-800 mb-10 flex items-center gap-3">
+            <h2 className="text-xl font-bold text-brand-800 mb-10 flex justify-center items-center gap-3">
               <span className="w-10 h-1 bg-brand-accent rounded-full"></span>
               PLACEMENT IN-CHARGE
+              <span className="w-10 h-1 bg-brand-accent rounded-full"></span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="flex items-center justify-center">
               {leadership.map((person) => (
                 <PersonCard key={person.name} person={person} large />
               ))}

@@ -10,7 +10,9 @@ interface TextStaggerHoverProps {
 }
 interface HoverSliderImageProps {
   index: number
-  imageUrl: string
+  imageUrl?: string
+  imageUrls?: string[]
+  intervalMs?: number
 }
 interface HoverSliderProps {}
 interface HoverSliderContextValue {
@@ -154,17 +156,51 @@ HoverSliderImageWrap.displayName = "HoverSliderImageWrap"
 export const HoverSliderImage = React.forwardRef<
   HTMLImageElement,
   HTMLMotionProps<"img"> & HoverSliderImageProps
->(({ index, imageUrl, children, className, ...props }, ref) => {
+>(
+  (
+    { index, imageUrl, imageUrls, intervalMs, children, className, src: _src, ...props },
+    ref
+  ) => {
   const { activeSlide } = useHoverSliderContext()
+  const images = React.useMemo(() => {
+    if (imageUrls && imageUrls.length > 0) return imageUrls
+    if (imageUrl) return [imageUrl]
+    return []
+  }, [imageUrl, imageUrls])
+  const [currentIndex, setCurrentIndex] = React.useState(0)
+  const isActive = activeSlide === index
+
+  React.useEffect(() => {
+    if (!images.length) return
+    if (!isActive) {
+      setCurrentIndex(0)
+      return
+    }
+    setCurrentIndex(0)
+    const interval = window.setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length)
+    }, intervalMs ?? 2500)
+
+    return () => window.clearInterval(interval)
+  }, [images.length, intervalMs, isActive])
+
+  if (!images.length) {
+    return null
+  }
+
+  const activeSrc = images[currentIndex]
   return (
     <motion.img
+      key={`${index}-${currentIndex}`}
       className={cn("inline-block align-middle", className)}
       transition={{ ease: [0.33, 1, 0.68, 1], duration: 0.8 }}
       variants={clipPathVariants}
-      animate={activeSlide === index ? "visible" : "hidden"}
+      animate={isActive ? "visible" : "hidden"}
+      src={activeSrc}
       ref={ref}
       {...props}
     />
   )
-})
+  }
+)
 HoverSliderImage.displayName = "HoverSliderImage"

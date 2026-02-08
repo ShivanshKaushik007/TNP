@@ -29,7 +29,7 @@ export default function Message() {
               <div className="flex flex-col items-center lg:items-stretch text-center lg:text-left">
                 <div className="w-full flex-1 mb-4 lg:mb-6">
                   <img
-                    src="/images/arun_tiwari.png"
+                    src="/images/akt.jpeg"
                     alt="Dr. Arun Kumar Tiwari"
                     className="w-full h-full rounded-xl object-cover shadow-md border border-gray-100"
                     loading="lazy"
