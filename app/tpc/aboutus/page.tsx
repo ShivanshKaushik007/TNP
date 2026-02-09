@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function AboutUsPage() {
   return (
@@ -39,9 +38,9 @@ export default function AboutUsPage() {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="group bg-white rounded-2xl shadow-glow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-brand-accent/40 transition-all duration-300">
-                <div className="aspect-video w-full overflow-hidden bg-gray-100 relative">
-                  <Image src="/images/facilities/workspace.webp" alt="Workspace" fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="aspect-video w-full overflow-hidden bg-gray-100">
+                  <img src="/images/facilities/workspace.webp" alt="Workspace"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Workspace</h3>
@@ -52,9 +51,9 @@ export default function AboutUsPage() {
               </div>
 
               <div className="group bg-white rounded-2xl shadow-glow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-brand-accent/40 transition-all duration-300">
-                <div className="aspect-video w-full overflow-hidden bg-gray-100 relative">
-                  <Image src="/images/facilities/interview.jpg" alt="Interview Rooms" fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="aspect-video w-full overflow-hidden bg-gray-100">
+                  <img src="/images/facilities/interview.jpg" alt="Interview Rooms"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Interview Rooms</h3>
@@ -65,9 +64,9 @@ export default function AboutUsPage() {
               </div>
 
               <div className="group bg-white rounded-2xl shadow-glow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-brand-accent/40 transition-all duration-300">
-                <div className="aspect-video w-full overflow-hidden bg-gray-100 relative">
-                  <Image src="/images/facilities/gd.jpg" alt="Group Discussion Room" fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="aspect-video w-full overflow-hidden bg-gray-100">
+                  <img src="/images/facilities/gd.jpg" alt="Group Discussion Room"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Group Discussion Room</h3>
@@ -78,9 +77,9 @@ export default function AboutUsPage() {
               </div>
 
               <div className="group bg-white rounded-2xl shadow-glow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-brand-accent/40 transition-all duration-300">
-                <div className="aspect-video w-full overflow-hidden bg-gray-100 relative">
-                  <Image src="/images/facilities/computer.png" alt="Computer Center" fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="aspect-video w-full overflow-hidden bg-gray-100">
+                  <img src="/images/facilities/computer.png" alt="Computer Center"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Computer Center</h3>
@@ -91,9 +90,9 @@ export default function AboutUsPage() {
               </div>
 
               <div className="group bg-white rounded-2xl shadow-glow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-brand-accent/40 transition-all duration-300">
-                <div className="aspect-video w-full overflow-hidden bg-gray-100 relative">
-                  <Image src="/images/facilities/presentation.jpg" alt="Presentation Room" fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="aspect-video w-full overflow-hidden bg-gray-100">
+                  <img src="/images/facilities/presentation.jpg" alt="Presentation Room"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Presentation Room</h3>
@@ -104,9 +103,9 @@ export default function AboutUsPage() {
               </div>
 
               <div className="group bg-white rounded-2xl shadow-glow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-brand-accent/40 transition-all duration-300">
-                <div className="aspect-video w-full overflow-hidden bg-gray-100 relative">
-                  <Image src="/images/facilities/audi.jpg" alt="Auditorium" fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="aspect-video w-full overflow-hidden bg-gray-100">
+                  <img src="/images/facilities/audi.jpg" alt="Auditorium"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Auditorium</h3>
@@ -117,9 +116,9 @@ export default function AboutUsPage() {
               </div>
 
               <div className="group bg-white rounded-2xl shadow-glow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-brand-accent/40 transition-all duration-300">
-                <div className="aspect-video w-full overflow-hidden bg-gray-100 relative">
-                  <Image src="/images/facilities/training.jpg" alt="Training Classroom" fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="aspect-video w-full overflow-hidden bg-gray-100">
+                  <img src="/images/facilities/training.jpg" alt="Training Classroom"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Training Classroom</h3>
@@ -130,9 +129,9 @@ export default function AboutUsPage() {
               </div>
 
               <div className="group bg-white rounded-2xl shadow-glow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-brand-accent/40 transition-all duration-300">
-                <div className="aspect-video w-full overflow-hidden bg-gray-100 relative">
-                  <Image src="/images/facilities/other_facilities.png" alt="Other Facilities" fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="aspect-video w-full overflow-hidden bg-gray-100">
+                  <img src="/images/facilities/other_facilities.png" alt="Other Facilities"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Other Facilities</h3>
@@ -237,16 +236,14 @@ export default function AboutUsPage() {
                           <span className="text-[10px] text-muted uppercase font-bold tracking-widest block mb-3">Top Recruiters</span>
                           <div className="flex items-center justify-between w-full">
                             {record.recruiters.map((recruiter, idx) => (
-                              <span key={idx} className="relative h-10 w-10 flex-shrink-0" title={recruiter.name}>
-                                <Image
-                                  src={recruiter.logo}
-                                  alt={recruiter.name}
-                                  width={40}
-                                  height={40}
-                                  className="object-contain opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-200"
-                                  loading="lazy"
-                                />
-                              </span>
+                              <img
+                                key={idx}
+                                src={recruiter.logo}
+                                alt={recruiter.name}
+                                title={recruiter.name}
+                                className="h-10 w-auto object-contain opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-200"
+                                loading="lazy"
+                              />
                             ))}
                           </div>
                         </div>

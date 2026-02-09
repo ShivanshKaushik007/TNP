@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { FlipWords } from '@/components/ui/flip-words';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { HoverSlider, HoverSliderImage, HoverSliderImageWrap, TextStaggerHover } from '@/components/ui/animated-slideshow';
@@ -408,9 +407,9 @@ export default function Home() {
             <div className="slide-in-right">
               <a href="/gallery" className="relative block group cursor-pointer">
                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl transition-all duration-500 group-hover:bg-white/15 group-hover:border-white/40">
-                  <div className="relative overflow-hidden rounded-xl w-full h-64">
-                    <Image src="/images/college_image.svg" alt="IET Campus" fill
-                      className="rounded-xl object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+                  <div className="relative overflow-hidden rounded-xl">
+                    <img src="/images/college_image.svg" alt="IET Campus"
+                      className="rounded-xl w-full h-64 object-cover transform transition-transform duration-1000 group-hover:scale-110" />
 
                     <div className="absolute inset-0 flex items-center justify-center z-20">
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/30 text-white text-sm font-semibold tracking-wide shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] group-hover:shadow-brand-accent/20">
@@ -592,27 +591,27 @@ export default function Home() {
             </button>
 
             <div id="logo-slider"
-              className="flex items-center gap-8 sm:gap-16 overflow-x-auto overflow-y-hidden whitespace-nowrap scroll-smooth scrollbar-hide">
-              <Image src="/images/pastRecruiter/adobe.png" alt="Adobe" width={112} height={80} className="h-20 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/dlf.png" alt="DLF" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/google.png" alt="Google" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/ibm-logo-hd.png" alt="IBM" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/Inmobi.png" alt="Inmobi" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/amazon.png" alt="Amazon" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/volvo.png" alt="Volvo" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/inox.jpg" alt="Inox" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/torrent.png" alt="torrent" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/forbes.png" alt="Forbes" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/Intuit.png" alt="Intuit" width={80} height={64} className="h-16 w-20" loading="lazy" />
-              <Image src="/images/pastRecruiter/zeta.png" alt="Zeta" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/hul.png" alt="HUL" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/uber.svg" alt="Uber" width={112} height={112} className="h-28 w-auto" loading="lazy" />
-              <Image src="/images/pastRecruiter/LT.avif" alt="L&T" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/tcs.png" alt="TCS" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/microsoft.png" alt="Microsoft" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/bharatelectronics.png" alt="Bharat Electronics" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/soti.png" alt="SOTI" width={112} height={112} className="h-28 w-auto transition-all" />
-              <Image src="/images/pastRecruiter/paytm.png" alt="Paytm" width={112} height={112} className="h-28 w-auto transition-all" />
+              className="flex items-center gap-8 sm:gap-16 overflow-x-auto overflow-y-hidden whitespace-nowrap scroll-smooth">
+              <img src="/images/pastRecruiter/adobe.png" alt="Adobe" className="h-20 transition-all" />
+              <img src="/images/pastRecruiter/dlf.png" alt="DLF" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/google.png" alt="Google" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/ibm-logo-hd.png" alt="IBM" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/Inmobi.png" alt="Inmobi" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/amazon.png" alt="Amazon" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/volvo.png" alt="Volvo" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/inox.jpg" alt="Inox" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/torrent.png" alt="torrent" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/forbes.png" alt="Forbes" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/Intuit.png" alt="Intuit" className="h-16 w-20" loading="lazy" />
+              <img src="/images/pastRecruiter/zeta.png" alt="Zeta" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/hul.png" alt="HUL" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/uber.svg" alt="Uber" className="h-28" loading="lazy" />
+              <img src="/images/pastRecruiter/LT.avif" alt="L&T" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/tcs.png" alt="TCS" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/microsoft.png" alt="Microsoft" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/bharatelectronics.png" alt="Bharat Electronics" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/soti.png" alt="SOTI" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/paytm.png" alt="Paytm" className="h-28 transition-all" />
              </div>
 
             <button id="scroll-right"
@@ -799,8 +798,8 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row items-start gap-4 lg:gap-6">
                   <div className="flex-shrink-0 mx-auto sm:mx-0">
                     <div
-                      className="w-14 h-14 lg:w-16 lg:h-16 border rounded-xl lg:rounded-2xl flex items-center justify-center relative overflow-hidden">
-                      <Image src="/images/teqip.png" alt="TEQIP" fill className="object-contain p-1" />
+                      className="w-14 h-14 lg:w-16 lg:h-16 border rounded-xl lg:rounded-2xl flex items-center justify-center">
+                      <img src="/images/teqip.png" alt="" />
                     </div>
                   </div>
                   <div className="text-center sm:text-left flex-1">
@@ -856,8 +855,8 @@ export default function Home() {
                 />
                   <div className="text-center">
                     <div
-                      className="w-12 h-12 lg:w-16 lg:h-16 rounded-xl border lg:rounded-2xl flex items-center justify-center mx-auto mb-3 lg:mb-4 group-hover:scale-110 transition-transform relative overflow-hidden">
-                      <Image src="/images/texas.jpg" alt="Texas Instruments" fill className="object-contain p-1" />
+                      className="w-12 h-12 lg:w-16 lg:h-16 rounded-xl border lg:rounded-2xl flex items-center justify-center mx-auto mb-3 lg:mb-4 group-hover:scale-110 transition-transform">
+                      <img src="/images/texas.jpg" alt="" />
                     </div>
                     <h4 className="font-bold text-brand-800 mb-1 lg:mb-2 text-sm lg:text-base">Texas Instruments</h4>
                     <p className="text-xs lg:text-sm text-muted">Industry partnership for electronics and embedded systems</p>
@@ -878,8 +877,8 @@ export default function Home() {
                 />
                   <div className="text-center">
                     <div
-                      className="w-12 h-12 lg:w-16 lg:h-16 border rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto mb-3 lg:mb-4 group-hover:scale-110 transition-transform relative overflow-hidden">
-                      <Image src="/images/ignou.png" alt="IGNOU" fill className="object-contain p-1" />
+                      className="w-12 h-12 lg:w-16 lg:h-16 border rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto mb-3 lg:mb-4 group-hover:scale-110 transition-transform">
+                      <img src="/images/ignou.png" alt="" />
                     </div>
                     <h4 className="font-bold text-brand-800 mb-1 lg:mb-2 text-sm lg:text-base">IGNOU</h4>
                     <p className="text-xs lg:text-sm text-muted">Distance learning and academic collaboration</p>
@@ -1287,8 +1286,8 @@ export default function Home() {
 
               <div className="mb-6">
                 <div className="bg-white rounded-xl overflow-hidden shadow-md">
-                  <div className="relative bg-brand-100 aspect-video w-full">
-                    <Image src="/images/campus.jpg" alt="campus" fill className="object-cover" />
+                  <div className=" bg-brand-100 ">
+                    <img className="object-cover w-full h-full" src="/images/campus.jpg" alt="campus" />
                   </div>
                 </div>
               </div>

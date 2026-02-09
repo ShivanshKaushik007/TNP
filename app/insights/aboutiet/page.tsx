@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function AboutIetPage() {
   return (
@@ -20,12 +19,11 @@ export default function AboutIetPage() {
 
             <div className="block">
               <div className="w-full lg:w-2/5 lg:float-right lg:ml-8 mb-6 lg:mb-4">
-                <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50 relative aspect-video w-full">
-                  <Image
+                <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
+                  <img
                     src="/images/ietlko.png"
                     alt="IET Lucknow Campus"
-                    fill
-                    className="object-contain"
+                    className="w-full h-auto object-contain block"
                   />
                 </div>
               </div>

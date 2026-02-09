@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Header() {
@@ -9,19 +8,13 @@ export default function Header() {
   const [mobileInsightsOpen, setMobileInsightsOpen] = useState(false);
   const [mobileRecruiterOpen, setMobileRecruiterOpen] = useState(false);
 
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false);
-    setMobileInsightsOpen(false);
-    setMobileRecruiterOpen(false);
-  };
-
   return (
     <header id="top" className="sticky top-0 z-50 backdrop-blur bg-white/90 border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-1">
           <Link href="/" className="flex items-center gap-3 sm:gap-3">
             <div>
-              <Image src="/images/logo.png" alt="ietlogo" width={80} height={80} className="w-10 h-10 sm:w-20 sm:h-20" />
+              <img className="w-10 h-10 sm:w-20 sm:h-20" src="/images/logo.png" alt="ietlogo" />
             </div>
             <div className="min-w-0">
               <div className="sm:text-2xl text-xs font-extrabold text-brand-800">Training & Placement Cell</div>
@@ -133,7 +126,7 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="lg:hidden border-t bg-white shadow-md">
           <div className="px-6 py-4 space-y-3">
-            <Link href="/tpc/aboutus" className="block py-2 text-brand-800 font-medium" onClick={closeMobileMenu}>
+            <Link href="/tpc/aboutus" className="block py-2 text-brand-800 font-medium">
               About
             </Link>
 
@@ -149,16 +142,16 @@ export default function Header() {
 
               {mobileInsightsOpen && (
                 <div className="pl-4 mt-2 space-y-2">
-                  <Link href="/insights/aboutiet" className="block py-2 text-muted" onClick={closeMobileMenu}>
+                  <Link href="/insights/aboutiet" className="block py-2 text-muted">
                     About IET
                   </Link>
-                  <Link href="/insights/message" className="block py-2 text-muted" onClick={closeMobileMenu}>
+                  <Link href="/insights/message" className="block py-2 text-muted">
                     Message
                   </Link>
-                  <a href="https://www.ietlucknow.ac.in/acad/publications" className="block py-2 text-muted" onClick={closeMobileMenu}>
+                  <a href="https://www.ietlucknow.ac.in/acad/publications" className="block py-2 text-muted">
                     Faculty Publication
                   </a>
-                  <Link href="/insights/recruiters" className="block py-2 text-muted" onClick={closeMobileMenu}>
+                  <Link href="/insights/recruiters" className="block py-2 text-muted">
                     Past Recruiters
                   </Link>
                 </div>
@@ -177,29 +170,29 @@ export default function Header() {
 
               {mobileRecruiterOpen && (
                 <div className="pl-4 mt-2 space-y-2">
-                  <Link href="/recruiters/invitation" className="block py-2 text-muted" onClick={closeMobileMenu}>
+                  <Link href="/recruiters/invitation" className="block py-2 text-muted">
                     Invitation
                   </Link>
-                  <Link href="/recruiters/procedure" className="block py-2 text-muted" onClick={closeMobileMenu}>
+                  <Link href="/recruiters/procedure" className="block py-2 text-muted">
                     Procedure
                   </Link>
-                  <Link href="/recruiters/ContactForm" className="block py-2 text-muted" onClick={closeMobileMenu}>
+                  <Link href="/recruiters/ContactForm" className="block py-2 text-muted">
                     Company Contact Form
                   </Link>
-                  <Link href="/recruiters/demographic" className="block py-2 text-muted" onClick={closeMobileMenu}>
+                  <Link href="/recruiters/demographic" className="block py-2 text-muted">
                     Demographic
                   </Link>
                 </div>
               )}
             </div>
 
-            <Link href="/gallery" className="block py-2 text-brand-800 font-medium" onClick={closeMobileMenu}>
+            <Link href="/gallery" className="block py-2 text-brand-800 font-medium">
               Gallery
             </Link>
-            <Link href="/downloads" className="block py-2 text-brand-800 font-medium" onClick={closeMobileMenu}>
+            <Link href="/downloads" className="block py-2 text-brand-800 font-medium">
               Downloads
             </Link>
-            <Link href="/tpc/contactus" className="block bg-brand-700 text-white px-4 py-2 rounded-md text-center font-medium" onClick={closeMobileMenu}>
+            <Link href="/tpc/contactus" className="block bg-brand-700 text-white px-4 py-2 rounded-md text-center font-medium">
               Contact Us
             </Link>
           </div>
