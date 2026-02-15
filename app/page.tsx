@@ -602,7 +602,7 @@ export default function Home() {
               <img src="/images/pastRecruiter/dlf.png" alt="DLF" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/google.png" alt="Google" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/ibm-logo-hd.png" alt="IBM" className="h-28 transition-all" />
-              <img src="/images/pastRecruiter/Inmobi.png" alt="Inmobi" className="h-28 transition-all" />
+              <img src="/images/pastRecruiter/InMobi.png" alt="Inmobi" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/amazon.png" alt="Amazon" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/volvo.png" alt="Volvo" className="h-28 transition-all" />
               <img src="/images/pastRecruiter/inox.jpg" alt="Inox" className="h-28 transition-all" />
