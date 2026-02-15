@@ -224,22 +224,23 @@ function PersonCard({ person, large = false }: { person: Person; large?: boolean
       <div className="flex-1 min-w-0 text-center sm:text-left">
         <div className={`${roleText} font-extrabold text-brand-accent uppercase mb-2 opacity-90`}>{person.role}</div>
         <div className={`${nameText} text-brand-800 truncate group-hover:text-brand-700 leading-tight`}>{person.name}</div>
-        <div className={`${large ? "text-base mt-1" : "text-sm"} text-muted font-medium mb-6`}>{person.dept}</div>
+        <div className={`${large ? "text-base mt-1" : "text-sm"} text-muted font-medium mb-3`}>{person.dept}</div>
         <div className="flex flex-wrap justify-center sm:justify-start gap-3">
           {person.email && (
-            <div className="flex flex-col sm:flex-row items-center gap-2">
-            <a
-              href={`mailto:${person.email}`}
-              className="flex items-center gap-2 px-4 py-2.5 bg-brand-50 rounded-xl text-brand-700 hover:bg-brand-700 hover:text-white transition-all duration-200 border border-brand-100/50"
-            >
-              <span className="text-xs font-bold truncate">{person.email}</span>
-            </a>
+            <div className="flex flex-col items-center gap-2">
             <a
               href={`mailto:${person.emailp}`}
-              className="flex items-center gap-2 px-4 py-2.5 bg-brand-50 rounded-xl text-brand-700 hover:bg-brand-700 hover:text-white transition-all duration-200 border border-brand-100/50"
+              className="flex items-center gap-2 px-4 py-1 bg-brand-50 rounded-xl text-brand-700 hover:bg-brand-700 hover:text-white transition-all duration-200 border border-brand-100/50"
             >
               <span className="text-xs font-bold truncate">{person.emailp}</span>
             </a>
+            <a
+              href={`mailto:${person.email}`}
+              className="flex items-center gap-2 px-4 py-1 bg-brand-50 rounded-xl text-brand-700 hover:bg-brand-700 hover:text-white transition-all duration-200 border border-brand-100/50"
+            >
+              <span className="text-xs font-bold truncate">{person.email}</span>
+            </a>
+           
             </div>
           )}
           {phoneHref && (
