@@ -32,27 +32,51 @@ export default function Gallerythumb({
           <p className="text-sm text-slate-500 mt-2">{description}</p>
         </div>
 
-        <div className="flex items-center gap-2 h-[400px] w-full max-w-5xl mt-10 px-4">
-          {normalizedImages.length === 0 ? (
+        {normalizedImages.length === 0 ? (
+          <div className="flex items-center gap-2 h-[240px] md:h-[400px] w-full max-w-5xl mt-10 px-4">
             <div className="w-full h-full rounded-lg border border-dashed border-slate-200 bg-slate-50 flex items-center justify-center text-sm text-slate-500">
               No images to display.
             </div>
-          ) : (
-            normalizedImages.map((img, idx) => (
-              <div
-                key={`${img.src}-${idx}`}
-                className="relative group flex-grow transition-all w-56 rounded-lg overflow-hidden h-[400px] duration-500 hover:w-full"
-              >
-                <img
-                  className="h-full w-full object-cover object-center"
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                />
+          </div>
+        ) : (
+          <>
+            {/* Mobile layout: simple grid */}
+            <div className="flex md:hidden w-full max-w-5xl mt-8 px-4">
+              <div className="grid grid-cols-2 gap-3 w-full">
+                {normalizedImages.map((img, idx) => (
+                  <div
+                    key={`${img.src}-${idx}-mobile`}
+                    className="relative rounded-lg overflow-hidden h-32 sm:h-40"
+                  >
+                    <img
+                      className="h-full w-full object-cover object-center"
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
               </div>
-            ))
-          )}
-        </div>
+            </div>
+
+            {/* Desktop layout: existing hover-strip layout */}
+            <div className="hidden md:flex items-center gap-2 h-[400px] w-full max-w-5xl mt-10 px-4">
+              {normalizedImages.map((img, idx) => (
+                <div
+                  key={`${img.src}-${idx}-desktop`}
+                  className="relative group flex-grow transition-all w-56 rounded-lg overflow-hidden h-[400px] duration-500 hover:w-full"
+                >
+                  <img
+                    className="h-full w-full object-cover object-center"
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </section>
     </>
   );

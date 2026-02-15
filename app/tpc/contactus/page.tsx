@@ -23,7 +23,7 @@ const leadership: Person[] = [
     dept: "Training & Placement Cell",
     email: "aruntiwari@ietlucknow.ac.in",
     emailp: "placement@ietlucknow.ac.in",
-    img: "/images/arun_tiwari.png",
+    img: "/images/arun_sir.jpeg",
     href: "https://www.ietlucknow.ac.in/people/aruntiwari"
   }
 ];

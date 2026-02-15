@@ -31,15 +31,21 @@ export const MagicText: React.FC<MagicTextProps> = ({ text, className }) => {
     return (
         <motion.p
             ref={container}
-            className={cn("flex flex-wrap leading-relaxed", className)}
+            className={cn(
+                className,
+                "leading-relaxed text-justify [text-align:justify] [text-align-last:left] [text-justify:inter-word]"
+            )}
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
         >
             {words.map((word, i) => (
-                <motion.span key={i} variants={wordVariants} className="mr-1.5 pt-1">
-                    {word}
-                </motion.span>
+                <span key={i}>
+                    <motion.span variants={wordVariants} className="pt-1">
+                        {word}
+                    </motion.span>
+                    {i < words.length - 1 ? " " : ""}
+                </span>
             ))}
         </motion.p>
     );

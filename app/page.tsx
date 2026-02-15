@@ -12,11 +12,12 @@ const INFRASTRUCTURE_SLIDES = [
   {
     id: "slide-1",
     title: "Placement Interviews",
-    imageUrl: "/images/snf.jpg",
+    imageUrl: "/TCS/IMG-20260119-WA0047.jpg",
     imageUrls: [
-      "/images/snf.jpg",
+     "/TCS/IMG-20260119-WA0047.jpg",
       "/images/PI.jpg",
-      "/images/facilities/interview.jpg"
+     "/TCS/IMG-20260119-WA0056.jpg",
+      "/Inmobi/IMG-20250909-WA0011.jpg"
     ],
     description: "Students and faculty members posing outside the director's office after company placement interviews."
   },
@@ -37,8 +38,8 @@ const INFRASTRUCTURE_SLIDES = [
     imageUrl: "/images/training session.jpg",
     imageUrls: [
       "/images/training session.jpg",
-      "/images/facilities/training.jpg",
-      "/images/facilities/workspace.webp"
+     "/images/drives/10.jpeg",
+     "/images/drives/11.jpeg",
     ],
     description: "Offline Training Session managed by Training and Placement Cell"
   },
@@ -48,7 +49,8 @@ const INFRASTRUCTURE_SLIDES = [
     imageUrl: "/images/gd.jpg",
     imageUrls: [
       "/images/gd.jpg",
-      "/images/facilities/gd.jpg",
+      "/images/drives/20.jpeg",
+      "/images/drives/21.jpeg",
       "/images/facilities/other_facilities.png"
     ],
     description: "Group Discussion round conducted during recruitment drive"
@@ -59,8 +61,9 @@ const INFRASTRUCTURE_SLIDES = [
     imageUrl: "/images/PI.jpg",
     imageUrls: [
       "/images/PI.jpg",
-      "/images/facilities/interview.jpg",
-      "/images/facilities/computer.png"
+       "/TCS/IMG-20260119-WA0056.jpg",
+      "/Inmobi/IMG-20250909-WA0011.jpg"
+      
     ],
     description: "Personal interview round with company recruiters at TnP Office"
   },
@@ -69,9 +72,10 @@ const INFRASTRUCTURE_SLIDES = [
     title: "Online Test",
     imageUrl: "/images/offline test.jpg",
     imageUrls: [
-      "/images/offline test.jpg",
+     
       "/images/facilities/computer.png",
-      "/images/facilities/workspace.webp"
+      "/images/facilities/workspace.webp",
+      "/Inmobi/IMG-20250909-WA0011.jpg"
     ],
     description: "Offline test conducted as the part of the recruitment process"
   },
@@ -81,8 +85,10 @@ const INFRASTRUCTURE_SLIDES = [
     imageUrl: "/images/presentation.jpg",
     imageUrls: [
       "/images/presentation.jpg",
-      "/images/facilities/presentation.jpg",
-      "/images/auditorium.png"
+      "/images/drives/23.jpeg",
+      "/images/drives/8.jpeg",
+      "/Zeta/IMG-20250828-WA0026.jpg",
+      "/Zeta/IMG-20250828-WA0018.jpg"
     ],
     description: "Company presentation before the start of the selection process"
   },
@@ -102,9 +108,9 @@ const GALLERY_OPTIONS = [
     icon: "BookOpen"
   },
   {
-    title: "TnP Office",
+    title: "T&P Office",
     description: "Training and Placement Cell",
-    image: "/images/tnproom.jpg",
+    image: "/images/PI.jpg",
     icon: "Users"
   },
   {
