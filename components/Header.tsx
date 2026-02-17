@@ -82,7 +82,7 @@ export default function Header() {
                     COMPANY CONTACT FORM
                   </Link>
                   <Link href="/recruiters/demographic" className="block px-4 py-2 hover:bg-gray-50 text-sm text-muted">
-                    DEMOGRAPHIC
+                    STATISTICS
                   </Link>
 
                   <div className="pt-3 border-t">
@@ -182,7 +182,7 @@ export default function Header() {
                     Company Contact Form
                   </Link>
                   <Link href="/recruiters/demographic" className="block py-2 text-muted" onClick={closeMobileMenu}>
-                    Demographic
+                    Statistics
                   </Link>
                 </div>
               )}

@@ -435,7 +435,7 @@ export default function PastRecruiters() {
 
               <div className="bg-white border border-gray-100 rounded-xl p-4 flex items-center justify-center h-36">
                 <img
-                  src="/images/pastRecruiter/byjus.png"
+                  src="/images/pastRecruiter/escorts.jpg"
                   alt="Company 12 logo"
                   className="max-h-full max-w-full object-contain"
                   loading="lazy"
