@@ -1,5 +1,6 @@
 "use client"
 
+import Image from 'next/image';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Building2, BookOpen, Users, Presentation, MessageSquare, GraduationCap } from 'lucide-react';
 
@@ -100,12 +101,13 @@ export const InteractiveSelector: React.FC<InteractiveSelectorProps> = ({ option
                                 onClick={() => handleOptionClick(index)}
                             >
                                 <div className="absolute inset-0">
-                                    <img
+                                    <Image
                                         src={option.image}
                                         alt={option.title}
-                                        className="w-full h-full object-cover"
+                                        className="object-cover"
+                                        fill
+                                        sizes="100vw"
                                         loading="lazy"
-                                        decoding="async"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                                 </div>

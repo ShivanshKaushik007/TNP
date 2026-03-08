@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function AboutIetPage() {
@@ -20,10 +21,13 @@ export default function AboutIetPage() {
             <div className="block">
               <div className="w-full lg:w-2/5 lg:float-right lg:ml-8 mb-6 lg:mb-4">
                 <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
-                  <img
+                  <Image
                     src="/images/ietlko.png"
                     alt="IET Lucknow Campus"
                     className="w-full h-auto object-contain block"
+                    width={1200}
+                    height={800}
+                    sizes="(max-width: 1024px) 100vw, 40vw"
                   />
                 </div>
               </div>

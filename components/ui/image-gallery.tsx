@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export type GalleryThumbImage = {
   src: string;
   alt: string;
@@ -48,10 +50,12 @@ export default function Gallerythumb({
                     key={`${img.src}-${idx}-mobile`}
                     className="relative rounded-lg overflow-hidden h-32 sm:h-40"
                   >
-                    <img
-                      className="h-full w-full object-cover object-center"
+                    <Image
+                      className="object-cover object-center"
                       src={img.src}
                       alt={img.alt}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 33vw"
                       loading="lazy"
                     />
                   </div>
@@ -66,10 +70,12 @@ export default function Gallerythumb({
                   key={`${img.src}-${idx}-desktop`}
                   className="relative group flex-grow transition-all w-56 rounded-lg overflow-hidden h-[400px] duration-500 hover:w-full"
                 >
-                  <img
-                    className="h-full w-full object-cover object-center"
+                  <Image
+                    className="object-cover object-center"
                     src={img.src}
                     alt={img.alt}
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 25vw"
                     loading="lazy"
                   />
                 </div>

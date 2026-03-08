@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
@@ -201,10 +202,13 @@ function PersonCard({ person, large = false }: { person: Person; large?: boolean
     : "relative h-full rounded-3xl transition-all duration-300";
 
   const image = person.img ? (
-    <img
+    <Image
       src={person.img}
       alt={person.name}
       className={`${imgSize} rounded-2xl object-cover shadow-md shrink-0 border-2 border-white aspect-square`}
+      width={192}
+      height={192}
+      sizes="(max-width: 640px) 80px, (max-width: 1024px) 160px, 192px"
     />
   ) : (
     <div

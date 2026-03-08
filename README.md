@@ -1,81 +1,91 @@
-# TPC Next.js Migration
+# TPC Website (Next.js)
 
-This is the Next.js migration of the TPC (Training and Placement Cell) website for IET Lucknow.
+Next.js (App Router) implementation of the Training and Placement Cell website for IET Lucknow.
+
+## Tech Stack
+
+- Next.js 14 (App Router)
+- React 18 + TypeScript
+- Tailwind CSS
+- GSAP + Motion for animation
+- Nodemailer for contact email API
 
 ## Getting Started
 
-### 1. Install Dependencies
+### Prerequisites
+
+- Node.js 18+ (recommended)
+- npm
+
+### Install
 
 ```bash
-cd tpc-new
 npm install
 ```
 
-### 2. Copy Static Assets
-
-Before running the project, you need to copy the static assets:
-
-```bash
-# From the root TPC directory, copy:
-# - images/ folder to tpc-new/public/images/
-# - files/ folder to tpc-new/public/files/
-# - CNAME file to tpc-new/public/CNAME
-```
-
-Or manually:
-- Copy `d:\TNP Website\TPC\images\` to `d:\TNP Website\TPC\tpc-new\public\images\`
-- Copy `d:\TNP Website\TPC\files\` to `d:\TNP Website\TPC\tpc-new\public\files\`
-- Copy `d:\TNP Website\TPC\CNAME` to `d:\TNP Website\TPC\tpc-new\public\CNAME`
-
-### 3. Run Development Server
+### Run Dev Server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+Open http://localhost:3000.
 
-### 4. Build for Production
+### Build
 
 ```bash
 npm run build
 ```
 
-This will create a static export in the `out/` folder.
+### Start (Production)
+
+```bash
+npm run start
+```
 
 ## Project Structure
 
 ```
-tpc-new/
-├── app/                    # Next.js App Router pages
-│   ├── layout.tsx         # Root layout with Header
-│   ├── page.tsx           # Homepage
-│   ├── downloads/         # Downloads page
-│   ├── faq/              # FAQ page
-│   ├── tpc/              # TPC pages (about, contact)
-│   ├── insights/         # Insights pages
-│   └── recruiters/       # Recruiter pages
-├── components/            # Reusable React components
-│   └── Header.tsx        # Navigation header
-├── public/               # Static files
-│   ├── images/          # Images
-│   ├── files/           # PDF and document files
-│   └── CNAME            # Custom domain file
-├── styles/              
-│   └── globals.css      # Global styles with Tailwind
-├── tailwind.config.ts   # Tailwind configuration
-├── next.config.js       # Next.js configuration
-└── package.json         # Dependencies
-
+app/                      # App Router pages and API routes
+	api/                    # Server routes (e.g. contact email)
+	downloads/              # Downloads page
+	gallery/                # Gallery page and components
+	insights/               # Insights pages
+	recruiters/             # Recruiter-focused pages
+	tpc/                    # About and contact pages
+components/               # Shared UI components
+components/ui/            # Reusable UI building blocks
+lib/                      # Utilities
+public/                   # Static assets (images, files, videos)
+styles/                   # Global styles (Tailwind)
 ```
 
-## Key Features
+## Environment Variables
 
-- ✅ **Static Export**: Configured for static HTML export
-- ✅ **Tailwind CSS**: All styling preserved using Tailwind
-- ✅ **Responsive Design**: Mobile-first approach maintained
-- ✅ **SEO Optimized**: Metadata and semantic HTML
-- ✅ **TypeScript**: Type-safe development
-- ✅ **Fast Performance**: Optimized builds with Next.js
+If you use the corporate contact API route, configure email credentials. Create a .env.local file with:
+
+```bash
+SMTP_HOST=your-smtp-host
+SMTP_PORT=587
+SMTP_USER=your-smtp-user
+SMTP_PASS=your-smtp-pass
+SMTP_SECURE=false
+SMTP_FROM=sender@example.com
+CONTACT_RECEIVER_EMAIL=recipient@example.com
+```
+
+These names match the corporate contact API route.
+
+## Scripts
+
+- npm run dev: Start dev server
+- npm run build: Build for production
+- npm run start: Start production server
+- npm run lint: Run ESLint
+
+## Notes
+
+- Next.js image optimization is disabled (unoptimized) for static hosting compatibility.
+- Public assets are served from public/ (images, files, videos, CNAME).
 
 

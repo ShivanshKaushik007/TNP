@@ -91,6 +91,12 @@ export default function Demographic() {
   const lineChartRef = useRef<HTMLCanvasElement>(null);
   const lineChartInstance = useRef<any>(null);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).Chart) {
+      setIsChartReady(true);
+    }
+  }, []);
+
   // Handle Chart Initialization and Updates
   useEffect(() => {
     if (isChartReady && chartRef.current) {
@@ -371,7 +377,7 @@ export default function Demographic() {
       <Script 
         src="https://cdn.jsdelivr.net/npm/chart.js" 
         strategy="afterInteractive"
-        onLoad={() => setIsChartReady(true)}
+        onReady={() => setIsChartReady(true)}
       />
 
       {/* MAIN CONTENT */}

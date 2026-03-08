@@ -17,7 +17,7 @@ const instituteDocs = [
 
 const studentDocs = [
   { name: 'Placement Policy', href: '/files/Student_Placement_Policy.pdf', type: 'PDF' },
-  { name: 'Training Form', href: '/files/Training_Form.pdf', type: 'PDF' },
+  { name: 'Training Form', href: '/files/', type: 'PDF' },
   { name: 'Internship NOC', href: '/files/Internship_noc.pdf', type: 'PDF' }
 ];
 

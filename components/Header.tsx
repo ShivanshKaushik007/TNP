@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -20,7 +21,15 @@ export default function Header() {
         <div className="flex items-center justify-between py-1">
           <Link href="/" className="flex items-center gap-3 sm:gap-3">
             <div>
-              <img className="w-10 h-10 sm:w-20 sm:h-20" src="/images/logo.png" alt="ietlogo" />
+              <Image
+                className="w-10 h-10 sm:w-20 sm:h-20"
+                src="/images/logo.png"
+                alt="ietlogo"
+                width={80}
+                height={80}
+                sizes="(max-width: 640px) 40px, 80px"
+                priority
+              />
             </div>
             <div className="min-w-0">
               <div className="sm:text-2xl text-xs font-extrabold text-brand-800">Training & Placement Cell</div>
@@ -178,7 +187,7 @@ export default function Header() {
                   <Link href="/recruiters/procedure" className="block py-2 text-muted" onClick={closeMobileMenu}>
                     Procedure
                   </Link>
-                  <Link href="/recruiters/ContactForm" className="block py-2 text-muted" onClick={closeMobileMenu}>
+                  <Link href="/recruiters/contactform" className="block py-2 text-muted" onClick={closeMobileMenu}>
                     Company Contact Form
                   </Link>
                   <Link href="/recruiters/demographic" className="block py-2 text-muted" onClick={closeMobileMenu}>
